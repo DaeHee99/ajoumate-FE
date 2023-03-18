@@ -50,13 +50,15 @@ export default function MyPage() {
     setID(user.ID);
     setNickname(user.Nickname);
     setGender(user.Gender);
-    join();
-    apply();
+
+    if (UserID) {
+      join();
+      apply();
+    }
   }, []);
 
-  if (UserID === "") {
-    return <Signin />;
-  } else
+  if (!UserID) return <Signin />;
+  else
     return (
       <>
         <Container>
