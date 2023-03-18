@@ -56,8 +56,6 @@ export default function MyPage() {
       join();
       apply();
     }
-
-
   },[]);
 
   if (!user.UserID) return <Signin />;
@@ -84,9 +82,9 @@ export default function MyPage() {
             </Box>
             <Intro>나의 신청 목록</Intro>
             <Box>
-              {JoinList.map((item, index) => (
+              {JoinList.map((item) => (
                 <Item
-                  key={item.index}
+                  key={item.Title}
                   category={item.Category}
                   title={item.Title}
                 />
@@ -94,9 +92,9 @@ export default function MyPage() {
             </Box>
             <Intro>내가 모집한 목록</Intro>
             <Box>
-              {ApplyList.map((item, index) => (
+              {ApplyList.map((item) => (
                 <Item
-                  key={item.index}
+                  key={item.Title}
                   category={item.Category}
                   title={item.Title}
                 />

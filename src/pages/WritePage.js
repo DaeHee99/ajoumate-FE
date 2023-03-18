@@ -92,7 +92,7 @@ function WritingPage() {
     Time: "",
     Place: "",
     MaximumNumberOfPeople: "",
-    Gender: "",
+    Gender: "EVERY",
     Comment: "",
   });
 
@@ -107,6 +107,7 @@ function WritingPage() {
     if (inputs.Comment === "") return alert("코멘트를 입력하세요.");
 
     let ConvertTime = new Date(inputs.Time).getTime();
+    let CreatedAt = new Date().getTime();
 
     console.log(inputs, ConvertTime);
 
@@ -121,6 +122,7 @@ function WritingPage() {
           MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
           Gender: inputs.Gender,
           Comment: inputs.Comment,
+          CreatedAt: CreatedAt,
         })
         .then((response) => {
           if (!response.data.Status)
