@@ -39,7 +39,7 @@ export default function CategoryDetailItem(props) {
       <StyledCategoryItemTitle>{props.item.title}</StyledCategoryItemTitle>
       <StyledCategoryItemContent>{props.item.content}</StyledCategoryItemContent>
       <ModalPortals>
-          <Modal show={modalStatus} handleModal={handleModal} status={STATUS}/>
+          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={props.item}/>
         </ModalPortals>
     </StyledCategoryDetailItem>
   );
