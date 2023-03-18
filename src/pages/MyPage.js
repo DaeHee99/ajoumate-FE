@@ -39,6 +39,7 @@ export default function MyPage() {
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/apply?UserID=${UserID}`
       );
 
+      console.log(data.data);
       setApplyList(data.Groups);
     } catch (e) {
       console.error(e);
