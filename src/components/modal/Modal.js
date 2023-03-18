@@ -6,14 +6,12 @@ export default function Modal({ show, handleModal, status, info}) {
 
     const handleClick = async() => {
       try{
-        console.log(user.UserID);
+        //console.log(user.UserID);
+        //console.log(info.GroupID);
 
-        const res = await axios.post("https://ajou-hackathon--qgrwz.run.goorm.site/group/join",{
-          params: {
-            GroupID: info.GroupID,
-            UserID: user.UserID
-          }
-        })
+        const res = await axios.post(`https://ajou-hackathon--qgrwz.run.goorm.site/group/join?GroupID=${info.GroupID}&UserID=${user.UserID}`)
+
+        console.log(res);
 
         alert("신청이 완료되었습니다.");
       }catch(err){
