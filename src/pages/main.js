@@ -35,10 +35,10 @@ function Main() {
 
   const join = async () => {
     try {
-      const { data } = await axios.get(
+      const  res  = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
       );
-      setJoinList(data.Groups);
+      setJoinList(res.data.Groups);
     } catch (e) {
       console.error(e);
     }
@@ -103,7 +103,8 @@ function Main() {
               marginLeft: "1.5rem",
             }}
           >
-            <Slider
+            {JoinList && (
+              <Slider
               {...settings}
               style={{
                 display: "flex",
@@ -112,59 +113,24 @@ function Main() {
                 borderRadius: "2rem",
               }}
             >
-              {JoinList.map((item, index) => (
-                <SliderElement
-                  key={item.index}
-                  Title={item.Title}
-                  MaximumNumberOfPeople={item.MaximumNumberOfPeople}
-                  Gender={item.Gender}
-                  Time={item.Time}
-                  Place={item.Place}
-                  Comment={item.Comment}
-                />
-              ))}
-              {/* <SliderElement
-                title={"길찾기에 필요한 인지적 ..."}
-                MaximumNumberOfPeople={"1/2인"}
-                gender={"남"}
-                date={"03/18 19:00"}
-                place={"아주대 삼거리"}
-                content={"내용입니다!~~~"}
-              />
-
-              <SliderElement
-                title={"동전 던지기 예측에 영향 ..."}
-                MaximumNumberOfPeople={"1/2인"}
-                gender={"남"}
-                date={"03/18 19:00"}
-                place={"아주대 삼거리"}
-                content={"내용입니다!~~~"}
-              />
-              <SliderElement
-                title={"위험행동에 관한 인지과정 ..."}
-                MaximumNumberOfPeople={"1/2인"}
-                gender={"남"}
-                date={"03/18 19:00"}
-                place={"아주대 삼거리"}
-                content={"내용입니다!~~~"}
-              />
-              <SliderElement
-                title={"매체를 통해 유발된 ..."}
-                MaximumNumberOfPeople={"1/2인"}
-                gender={"남"}
-                date={"03/18 19:00"}
-                place={"아주대 삼거리"}
-                content={"내용입니다!~~~"}
-              />
-              <SliderElement
-                title={"확률적 의사결정에서 ..."}
-                MaximumNumberOfPeople={"1/2인"}
-                gender={"남"}
-                date={"03/18 19:00"}
-                place={"아주대 삼거리"}
-                content={"내용입니다!~~~"}
-              /> */}
+              {JoinList.map((item,index)=>{
+                console.log(item);
+                console.log(JoinList);
+                return(
+                  <SliderElement
+                    key={index}
+                    Title={item.Title}
+                    MaximumNumberOfPeople={item.MaximumNumberOfPeople}
+                    Gender={item.Gender}
+                    Time={item.Time}
+                    Place={item.Place}
+                    Comment={item.Comment}
+                  />
+                );
+                })}
             </Slider>
+            )}
+
           </div>
         </div>
       </div>
