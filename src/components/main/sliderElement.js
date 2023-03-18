@@ -41,7 +41,7 @@ const SliderElement = (Props) => {
             marginRight: 2,
           }}
         >
-          {Props.time}
+          {Props.gender}
         </div>
         <div
           style={{

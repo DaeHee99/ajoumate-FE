@@ -86,6 +86,7 @@ function Main() {
                 gender={"남"}
                 date={"03/18 19:00"}
                 place={'아주대 삼거리'}
+                content={"내용입니다!~~~"}
               />
               <SliderElement
                 title={"매체를 통해 유발된 ..."}
