@@ -20,10 +20,11 @@ const StyledButton = styled.button`
   background-color: #5f95e5;
   color: white;
   padding: 10px 15px;
-  float: right;
-  margin-right: 10px;
-  margin-top: 20px;
   cursor: pointer;
+  position: fixed;
+  top: 83%;
+  right: 5%;
+  z-index: 99;
 `;
 
 let CategoryData = [
