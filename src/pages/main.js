@@ -97,7 +97,6 @@ function Main() {
             >
               <SliderElement
                 title={"길찾기에 필요한 인지적 ..."}
-                time={"5분"}
                 MaximumNumberOfPeople={"1/2인"}
                 gender={"남"}
                 date={"03/18 19:00"}
@@ -107,7 +106,6 @@ function Main() {
 
               <SliderElement
                 title={"동전 던지기 예측에 영향 ..."}
-                time={"10분"}
                 MaximumNumberOfPeople={"1/2인"}
                 gender={"남"}
                 date={"03/18 19:00"}
@@ -116,7 +114,6 @@ function Main() {
               />
               <SliderElement
                 title={"위험행동에 관한 인지과정 ..."}
-                time={"7분"}
                 MaximumNumberOfPeople={"1/2인"}
                 gender={"남"}
                 date={"03/18 19:00"}
@@ -125,7 +122,6 @@ function Main() {
               />
               <SliderElement
                 title={"매체를 통해 유발된 ..."}
-                time={"3분"}
                 MaximumNumberOfPeople={"1/2인"}
                 gender={"남"}
                 date={"03/18 19:00"}
@@ -134,7 +130,6 @@ function Main() {
               />
               <SliderElement
                 title={"확률적 의사결정에서 ..."}
-                time={"5분"}
                 MaximumNumberOfPeople={"1/2인"}
                 gender={"남"}
                 date={"03/18 19:00"}
