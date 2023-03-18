@@ -64,7 +64,7 @@ const StyledInput = styled.input`
   font-size: 15px;
 `;
 
-const StyledCommentInput = styled.input`
+const StyledCommentInput = styled.textarea`
   margin: 20px;
   height: 100px;
   width: 240px;
@@ -108,24 +108,19 @@ function WritingPage() {
         {
           UserID: inputs.UserID,
           Category: inputs.Category,
-          UserID: inputs.UserID,
+          //UserID: inputs.UserID,
           Title: inputs.Title,
           Time: ConvertTime,
           Place: inputs.Place,
           MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
           Comment: inputs.Comment,
         }
-      )
-      .then(() => {
+      );
+
+      if (data.Status) {
+        console.log(data);
         navigation(`/category/${inputs.Category.toLowerCase()}`);
-      })
-      //console.log(data.UserID);
-      //   if (data.Status) {
-      //     console.log(data);
-      //     alert("모임 생성에 성공했습니다.");
-      //   } else {
-      //     alert("모임 생성에 실패했습니다.");
-      //   }
+      }
     } catch (e) {
       console.error(e);
     }
