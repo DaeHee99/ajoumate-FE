@@ -114,7 +114,7 @@ function Main() {
             >
               {JoinList.map((item, index) => (
                 <SliderElement
-                  key={item.index}
+                  key={index}
                   Title={item.Title}
                   MaximumNumberOfPeople={item.MaximumNumberOfPeople}
                   Gender={item.Gender}
