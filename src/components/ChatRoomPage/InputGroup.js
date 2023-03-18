@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { useState } from "react";
+import socket from "../../api/socket";
+import { useSelector } from "react-redux";
 
-function InputGroup({ socket }) {
+function InputGroup() {
   const [userInput, setUserInput] = useState("");
-
+  const userName = useSelector((state) => state.userSlice.Nickname);
   const handleSubmit = (e) => {
     e.preventDefault();
     socket.emit("message", {
-      From: "me",
-      To: "friend-name",
+      From: userName,
+      To: userName === "taehoon" ? "taehoon2" : "taehoon",
       Content: userInput,
       Date: Date.now(),
     });

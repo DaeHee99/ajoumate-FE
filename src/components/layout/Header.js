@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import Logo from '../../images/Logo.png';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import Logo from "../../images/Logo.png";
 
 const StyledHeader = styled.div`
   background-color: #5f95e5;
@@ -18,8 +18,13 @@ export default function Header() {
   const navigation = useNavigate();
 
   return (
-    <StyledHeader onClick={()=>navigation('/')}>
-      <img src={Logo} alt='Logo' width={50} style={{borderRadius: '50%', marginRight: 15}}/>
+    <StyledHeader onClick={() => navigation("/home")}>
+      <img
+        src={Logo}
+        alt="Logo"
+        width={50}
+        style={{ borderRadius: "50%", marginRight: 15 }}
+      />
       아주 메이트
     </StyledHeader>
   );
