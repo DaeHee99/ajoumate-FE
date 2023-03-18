@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -27,19 +28,21 @@ const StyledNavigationButton = styled.button`
 `;
 
 export default function Navigation() {
+  const navigation = useNavigate();
+
   return (
     <StyledNavigation>
       <StyledNavigationButton>
-        <HiHome onClick={()=>alert('메인')}/>
+        <HiHome onClick={()=>navigation('/')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <RxHamburgerMenu onClick={()=>alert('카테고리')}/>
+        <RxHamburgerMenu onClick={()=>navigation('/category')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <IoChatbox onClick={()=>alert('채팅')}/>
+        <IoChatbox onClick={()=>navigation('/chatroom')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <BsFillPersonFill onClick={()=>alert('마이 페이지')}/>
+        <BsFillPersonFill onClick={()=>alert('/mypage')}/>
       </StyledNavigationButton>
     </StyledNavigation>
   );
