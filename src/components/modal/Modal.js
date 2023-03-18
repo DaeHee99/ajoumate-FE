@@ -1,4 +1,4 @@
-export default function Modal({ show, handleModal, status}) {
+export default function Modal({ show, handleModal, status, info}) {
     const handleClick = () => alert("신청이 완료되었습니다.");
 
     return (
@@ -29,18 +29,18 @@ export default function Modal({ show, handleModal, status}) {
                 <div style={{fontSize:"1.5rem", marginBottom:"0.6rem"}}>식사메이트</div>
                 <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem"}}>
                     <div style={{display:"flex"}}>
-                        <div style={{width:"5rem", borderRight:"1px solid gray", padding:"0 1rem 0 2rem", marginTop:"0.2rem"}}>4인</div>
-                        <div style={{width:"5rem", borderRight:"1px solid gray", padding:"0 1rem", marginTop:"0.2rem"}}>무관</div>
-                        <div style={{width:"9rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>03/18 12:00</div>
-                        <div style={{marginTop:"0.2rem"}}>구학생회관</div>
+                        <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"2rem", marginTop:"0.2rem"}}>{info.MaximumNumberOfPeople}</div>
+                        <div style={{width:"4rem", borderRight:"1px solid gray", paddingLeft:"1rem", marginTop:"0.2rem"}}>{info.gender}</div>
+                        <div style={{width:"8.5rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>{info.date}</div>
+                        <div style={{marginTop:"0.2rem"}}>{info.place}</div>
                     </div>
 
-                    <div style={{fontSize:"1.5rem", margin:"1rem 0 0 2rem"}}>학생식당에서 점심 같이 드실 분</div>
+                    <div style={{fontSize:"1.5rem", margin:"1rem 0 0 2rem"}}>{info.title}</div>
                 </div>
             </div>
             <div style={{marginTop:"2rem"}}>
                 <div style={{fontSize:"1.5rem", marginBottom:"0.6rem"}}>코멘트</div>
-                <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.5rem", fontFamily:"fantasy", textAlign : "center"}}>같이 어떤 메뉴 먹어요~</div>
+                <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.5rem", fontFamily:"fantasy", textAlign : "center"}}>{info.content}</div>
             </div>
             {status === "MYMATE" ? <></> :
               (status === "APPLY" ? <div style={{textAlign:"right", marginTop:"1rem"}}>
