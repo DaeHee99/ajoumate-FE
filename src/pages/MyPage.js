@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import Container from "../components/sign/Container";
 import Wrap from "../components/sign/Wrap";
@@ -12,11 +13,12 @@ import Logo from "../images/Logo.png";
 
 export default function MyPage() {
   const [UserID, setUserID] = useState("");
-  const [ID, setID] = useState("");
   const [Nickname, setNickname] = useState("");
   const [Gender, setGender] = useState("");
+  const [ID, setID] = useState("");
   const [JoinList, setJoinList] = useState([]);
   const [ApplyList, setApplyList] = useState([]);
+  const user = useSelector((state) => state.userSlice);
 
   const join = async () => {
     try {
@@ -49,13 +51,12 @@ export default function MyPage() {
   };
 
   useEffect(() => {
-    // join();
-    // apply();
-    setJoinList([
-      { Category: "택시 메이트", Title: "택시 같이탈분!!!????" },
-      { Category: "사물함 메이트", Title: "구합니다!" },
-    ]);
-    setApplyList([{ Category: "sdf", Title: "24" }]);
+    setUserID(user.UserID);
+    setID(user.ID);
+    setNickname(user.Nickname);
+    setGender(user.Gender);
+    join();
+    apply();
   }, []);
 
   return (

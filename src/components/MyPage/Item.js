@@ -12,13 +12,13 @@ const Align = styled.li`
 `;
 
 const Category = styled.p`
-  width: 10rem;
+  width: 12rem;
   font-size: 1.6rem;
   margin: 0 1.6rem 0 0;
 `;
 
 const Title = styled.p`
-  width: 18rem;
+  width: 17rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
