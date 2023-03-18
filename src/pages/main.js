@@ -132,6 +132,7 @@ function Main() {
                       Place={item.Place}
                       Comment={item.Comment}
                       NumberOfPeople={item.NumberOfPeople}
+                      UserID={item.UserID}
                     />
                   );
                 })}
