@@ -10,6 +10,7 @@ import Name from "../components/MyPage/Name";
 import SubInfo from "../components/MyPage/SubInfo";
 import Item from "../components/MyPage/Item";
 import Logo from "../images/Logo.png";
+import Signin from "./Signin";
 
 export default function MyPage() {
   const [UserID, setUserID] = useState("");
@@ -59,48 +60,51 @@ export default function MyPage() {
     apply();
   }, []);
 
-  return (
-    <>
-      <Container>
-        <Wrap>
-          <Intro>내 정보</Intro>
-          <Box>
-            <Align>
-              <img
-                src={Logo}
-                alt="Logo"
-                width={85}
-                style={{ borderRadius: "50%", marginRight: 20 }}
-              />
-              <div>
-                <Name>{Nickname}</Name>
-                <SubInfo>{ID}</SubInfo>
-                <SubInfo>성별: {Gender}</SubInfo>
-              </div>
-            </Align>
-          </Box>
-          <Intro>나의 신청 목록</Intro>
-          <Box>
-            {JoinList.map((item) => (
-              <Item
-                key={item.Title}
-                category={item.Category}
-                title={item.Title}
-              />
-            ))}
-          </Box>
-          <Intro>내가 모집한 목록</Intro>
-          <Box>
-            {ApplyList.map((item) => (
-              <Item
-                key={item.Title}
-                category={item.Category}
-                title={item.Title}
-              />
-            ))}
-          </Box>
-        </Wrap>
-      </Container>
-    </>
-  );
+  if (UserID === "") {
+    return <Signin />;
+  } else
+    return (
+      <>
+        <Container>
+          <Wrap>
+            <Intro>내 정보</Intro>
+            <Box>
+              <Align>
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  width={85}
+                  style={{ borderRadius: "50%", marginRight: 20 }}
+                />
+                <div>
+                  <Name>{Nickname}</Name>
+                  <SubInfo>{ID}</SubInfo>
+                  <SubInfo>성별: {Gender}</SubInfo>
+                </div>
+              </Align>
+            </Box>
+            <Intro>나의 신청 목록</Intro>
+            <Box>
+              {JoinList.map((item) => (
+                <Item
+                  key={item.Title}
+                  category={item.Category}
+                  title={item.Title}
+                />
+              ))}
+            </Box>
+            <Intro>내가 모집한 목록</Intro>
+            <Box>
+              {ApplyList.map((item) => (
+                <Item
+                  key={item.Title}
+                  category={item.Category}
+                  title={item.Title}
+                />
+              ))}
+            </Box>
+          </Wrap>
+        </Container>
+      </>
+    );
 }
