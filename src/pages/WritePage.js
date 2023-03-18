@@ -12,7 +12,7 @@ const StyledWritePage = styled.div`
 
 const StyledWriteForm = styled.div`
   width: 315px;
-  height: 415px;
+  height: 470px;
   border: 1px solid gray;
   border-radius: 8%;
   margin-left: auto;
@@ -92,6 +92,7 @@ function WritingPage() {
     Time: "",
     Place: "",
     MaximumNumberOfPeople: "",
+    Gender: "",
     Comment: "",
   });
 
@@ -198,6 +199,20 @@ function WritingPage() {
               name="MaximumNumberOfPeople"
               onChange={handleSelect}
             />
+          </Align>
+
+          <Align>
+            <StyledSubTitle>모집성별</StyledSubTitle>
+            <StyledSelect
+              className="Gender"
+              name="Gender"
+              onChange={handleSelect}
+              value={inputs.Gender}
+            >
+              <option value="EVERY">성별무관</option>
+              <option value="FEMALE">여성</option>
+              <option value="MALE">남성</option>
+            </StyledSelect>
           </Align>
 
           <Align>
