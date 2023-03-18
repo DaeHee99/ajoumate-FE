@@ -177,10 +177,11 @@ function Main() {
               >
                 <div
                   style={{
-                    width: "35%",
-                    textAlign: "center",
+                    width: "40%",
+                    // textAlign: "center",
                     fontSize: "1.8rem",
                     fontWeight: "bold",
+                    marginLeft: "1.5rem",
                   }}
                 >
                   {item.title}
