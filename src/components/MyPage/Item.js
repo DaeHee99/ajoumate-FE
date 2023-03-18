@@ -29,18 +29,18 @@ const Title = styled.p`
   margin: 0 1.6rem 0 0;
 `;
 
-export default function Item({ category, title, ...rest }) {
+export default function Item({ info, ...rest }) {
   const [modalStatus, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modalStatus);
 };
   const STATUS = "MYMATE"
   return (
-    <Align {...rest} >
-      <Category>{category}</Category>
-      <Title>{title}</Title>
+    <Align {...rest} onClick={handleModal}>
+      <Category>{info.Category}</Category>
+      <Title>{info.Title}</Title>
       <ModalPortals>
-          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={props.item}/>
+          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={info}/>
         </ModalPortals>
     </Align>
   );

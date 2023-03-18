@@ -12,7 +12,7 @@ const StyledCategoryPage = styled.div`
 const StyledTitle = styled.div`
   font-size: 25px;
   font-weight: bold;
-  margin: 0 10px;
+  margin: 15px 10px;
 `;
 
 export default function Category() {

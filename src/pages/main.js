@@ -35,7 +35,7 @@ function Main() {
 
   const join = async () => {
     try {
-      const  res  = await axios.get(
+      const res = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
       );
       setJoinList(res.data.Groups);
@@ -54,7 +54,6 @@ function Main() {
       style={{
         display: "flex",
         flexDirection: "column",
-        fontFamily: "pretendard",
         width: "36rem",
         height: "60rem",
         flex: 1,
@@ -65,10 +64,9 @@ function Main() {
       <div id="my_apply_list">
         <div
           style={{
-            marginLeft: 20,
-            marginTop: 15,
-            fontSize: "2rem",
-            fontWeight: "bolder",
+            fontSize: "25px",
+            fontWeight: "bold",
+            margin: "10px",
           }}
         >
           나의 신청 목록
@@ -105,32 +103,31 @@ function Main() {
           >
             {JoinList && (
               <Slider
-              {...settings}
-              style={{
-                display: "flex",
-                height: "68%",
-                width: "100%",
-                borderRadius: "2rem",
-              }}
-            >
-              {JoinList.map((item,index)=>{
-                console.log(item);
-                console.log(JoinList);
-                return(
-                  <SliderElement
-                    key={index}
-                    Title={item.Title}
-                    MaximumNumberOfPeople={item.MaximumNumberOfPeople}
-                    Gender={item.Gender}
-                    Time={item.Time}
-                    Place={item.Place}
-                    Comment={item.Comment}
-                  />
-                );
+                {...settings}
+                style={{
+                  display: "flex",
+                  height: "68%",
+                  width: "100%",
+                  borderRadius: "2rem",
+                }}
+              >
+                {JoinList.map((item, index) => {
+                  console.log(item);
+                  console.log(JoinList);
+                  return (
+                    <SliderElement
+                      key={index}
+                      Title={item.Title}
+                      MaximumNumberOfPeople={item.MaximumNumberOfPeople}
+                      Gender={item.Gender}
+                      Time={item.Time}
+                      Place={item.Place}
+                      Comment={item.Comment}
+                    />
+                  );
                 })}
-            </Slider>
+              </Slider>
             )}
-
           </div>
         </div>
       </div>
@@ -138,11 +135,9 @@ function Main() {
       <div id="mate_list" style={{ marginTop: "4rem" }}>
         <div
           style={{
-            marginLeft: 30,
-            marginTop: 15,
-            marginBottom: 15,
-            fontSize: "2rem",
-            fontWeight: "bolder",
+            fontSize: "25px",
+            fontWeight: "bold",
+            margin: "10px",
           }}
         >
           메이트 목록
@@ -177,7 +172,13 @@ function Main() {
               >
                 식사메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
+              <div
+                style={{
+                  width: "65%",
+                  paddingLeft: "1rem",
+                  fontSize: "1.4rem",
+                }}
+              >
                 {recent.find((mate) => mate?.Category === "MEAL")?.Title}
               </div>
             </div>
@@ -201,7 +202,13 @@ function Main() {
               >
                 택시메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
+              <div
+                style={{
+                  width: "65%",
+                  paddingLeft: "1rem",
+                  fontSize: "1.4rem",
+                }}
+              >
                 {recent.find((mate) => mate?.Category === "TAXI")?.Title}
               </div>
             </div>
@@ -225,7 +232,13 @@ function Main() {
               >
                 사물함메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
+              <div
+                style={{
+                  width: "65%",
+                  paddingLeft: "1rem",
+                  fontSize: "1.4rem",
+                }}
+              >
                 {recent.find((mate) => mate?.Category === "LOCKER")?.Title}
               </div>
             </div>
@@ -249,7 +262,13 @@ function Main() {
               >
                 카페메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
+              <div
+                style={{
+                  width: "65%",
+                  paddingLeft: "1rem",
+                  fontSize: "1.4rem",
+                }}
+              >
                 {recent.find((mate) => mate?.Category === "CAFE")?.Title}
               </div>
             </div>
@@ -272,7 +291,13 @@ function Main() {
               >
                 기타메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
+              <div
+                style={{
+                  width: "65%",
+                  paddingLeft: "1rem",
+                  fontSize: "1.4rem",
+                }}
+              >
                 {recent.find((mate) => mate?.Category === "ETC")?.Title}
               </div>
             </div>

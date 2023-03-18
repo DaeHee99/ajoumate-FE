@@ -2,28 +2,68 @@ import styled from "styled-components";
 import ChatRoomCard from "../components/ChatlistPage/ChatRoomCard";
 import { useNavigate } from "react-router-dom";
 import socket from "../api/socket";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postChat } from "../redux/modules/chatSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const StyledTitle = styled.div`
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 10px 15px 10px;
+`;
 
 function ChatListPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [chatAlert, setChatAlert] = useState(false);
-  console.log("재렌더링되나?");
-  socket.on("message", (msg) => {
-    console.log(msg);
-    setChatAlert(true);
-    dispatch(postChat(msg));
-  });
-  const handleClickCard = () => {
-    navigate("/chatroom/1");
+  const userName = useSelector((state) => state.userSlice.Nickname);
+  const [chatAlert, setChatAlert] = useState([]);
+  const [findName, setFindName] = useState("");
+  const [myRooms, setMyRooms] = useState([]);
+  console.log(chatAlert);
+
+  useEffect(() => {
+    socket.emit("get room list", userName);
+    socket.on("get room list", (res) => {
+      console.log(res);
+      setMyRooms([...myRooms, ...res]);
+    });
+    socket.on("message", (msg) => {
+      console.log(msg);
+      setChatAlert([...chatAlert, msg.From]);
+      dispatch(postChat(msg));
+    });
+    socket.on("create room", (rooms) => {
+      setMyRooms([...myRooms, ...rooms]);
+    });
+  }, []);
+  const handleClickCard = (to) => {
+    setChatAlert([...chatAlert.filter((el) => el !== to)]);
+    navigate(`/chatroom/${userName}+${to}`);
   };
   return (
     <StChatListPage>
       <h2>채팅목록</h2>
+      <div className="chat-add-form">
+        <input onChange={(e) => setFindName(e.target.value)}></input>
+        <button
+          onClick={() => {
+            socket.emit("create room", userName, findName);
+          }}
+        >
+          채팅시작
+        </button>
+      </div>
       <StChatListWrapper>
-        <ChatRoomCard onClick={handleClickCard} chatAlert={chatAlert} />
+        {myRooms?.map((room) => {
+          return (
+            <ChatRoomCard
+              onClick={handleClickCard}
+              chatAlert={chatAlert.includes(room) ? true : false}
+              to={room}
+              key={room}
+            />
+          );
+        })}
       </StChatListWrapper>
     </StChatListPage>
   );

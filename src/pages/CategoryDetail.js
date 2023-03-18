@@ -13,7 +13,7 @@ const StyledCategoryDetailPage = styled.div`
 const StyledTitle = styled.div`
   font-size: 25px;
   font-weight: bold;
-  margin: 0 10px;
+  margin: 15px 10px;
 `;
 
 export default function CategoryDetail() {
@@ -38,7 +38,7 @@ export default function CategoryDetail() {
     <StyledCategoryDetailPage>
       <StyledTitle>{title}</StyledTitle>
       {CategoryDetailData.sort((a, b) => a.Time - b.Time).map((item, index) => (
-        <CategoryDetailItem item={item} key={index} />
+        <CategoryDetailItem item={item} key={index} type={title}/>
       ))}
       <WriteButton />
     </StyledCategoryDetailPage>

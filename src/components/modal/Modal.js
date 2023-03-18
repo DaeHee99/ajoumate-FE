@@ -1,7 +1,20 @@
 import axios from "axios";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
-export default function Modal({ show, handleModal, status, info}) {
+const StyledButton = styled.button`
+  font-size: 18px;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  background-color: #5f95e5;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+`;
+
+export default function Modal({ show, handleModal, status, info, type}) {
   const user = useSelector((state) => state.userSlice);
 
     const handleClick = async() => {
@@ -45,34 +58,36 @@ export default function Modal({ show, handleModal, status, info}) {
             borderRadius:"0.5rem",
             background:"#fff",
             transform: "translateY(8rem)",
-            transition: "transform ease 0.3s 0.1s"
+            transition: "transform ease 0.3s 0.1s",
+            bottom: "80px"
         }}>
             <div>
-                <div style={{fontSize:"1.5rem", marginBottom:"0.6rem"}}>식사메이트</div>
+                <div style={{fontSize:"2rem", marginBottom:"0.6rem"}}>{type}</div>
                 <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem"}}>
                     <div style={{display:"flex"}}>
-                        <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"2rem", marginTop:"0.2rem"}}>{info.MaximumNumberOfPeople}</div>
-                        <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"1rem", marginTop:"0.2rem"}}>{info.Gender}</div>
+
+                        <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"2rem", marginTop:"0.2rem"}}>{info.NumberOfPeople+'/'+info.MaximumNumberOfPeople+'명'}</div>
+                        <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"0.5rem", marginTop:"0.2rem"}}>{info.Gender}</div>
                         <div style={{width:"7.5rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>{dateToString(info.Time)}</div>
                         <div style={{marginTop:"0.2rem", paddingLeft:"1rem"}}>{info.Place}</div>
                     </div>
 
-                    <div style={{fontSize:"1.5rem", margin:"1rem 0 0 2rem"}}>{info.Title}</div>
+                    <div style={{fontSize:"2rem", margin:"1rem 0 0 2rem"}}>{info.Title}</div>
                 </div>
             </div>
             <div style={{marginTop:"2rem"}}>
-                <div style={{fontSize:"1.5rem", marginBottom:"0.6rem"}}>코멘트</div>
-                <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.5rem", fontFamily:"fantasy", textAlign : "center"}}>{info.Comment}</div>
+                <div style={{fontSize:"2rem", marginBottom:"0.6rem"}}>코멘트</div>
+                <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.8rem", textAlign : "center"}}>{info.Comment}</div>
             </div>
             {status === "MYMATE" ? <></> :
               (status === "APPLY" ? <div style={{textAlign:"right", marginTop:"1rem"}}>
-                <button type="button" style={{background:"5F95E5"}} onClick={handleClick}>
+                <StyledButton onClick={handleClick}>
                   신청하기
-                </button>
+                </StyledButton>
               </div> : <div style={{textAlign:"right", marginTop:"1rem"}}>
-                <button type="button" style={{background:"5F95E5"}} >
+                <StyledButton disabled={true}>
                   모집완료
-                </button>
+                </StyledButton>
               </div>)
               }
         </div>

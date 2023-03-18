@@ -57,6 +57,9 @@ const chatSlice = createSlice({
     setSocket: (state, action) => {
       console.log(action.payload);
     },
+    getInitChat: (state, action) => {
+      state.chatList = action.payload;
+    },
   },
   extraReducers: {
     [__getinitialChatList.pending]: (state, action) => {
@@ -73,6 +76,7 @@ const chatSlice = createSlice({
   },
 });
 
-export const { postChat, clearChat, setSocket } = chatSlice.actions;
+export const { postChat, clearChat, setSocket, getInitChat } =
+  chatSlice.actions;
 
 export default chatSlice.reducer;
