@@ -1,13 +1,20 @@
 import styled from "styled-components";
 import ChatRoomCard from "../components/ChatlistPage/ChatRoomCard";
 import { useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
+import socket from "../api/socket";
+import { useDispatch } from "react-redux";
+import { postChat } from "../redux/modules/chatSlice";
+import { useState } from "react";
 
-function ChatListPage({ socket }) {
+function ChatListPage() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [chatAlert, setChatAlert] = useState(false);
+  console.log("재렌더링되나?");
   socket.on("message", (msg) => {
     console.log(msg);
+    setChatAlert(true);
+    dispatch(postChat(msg));
   });
   const handleClickCard = () => {
     navigate("/chatroom/1");
@@ -16,12 +23,7 @@ function ChatListPage({ socket }) {
     <StChatListPage>
       <h2>채팅목록</h2>
       <StChatListWrapper>
-        <ChatRoomCard onClick={handleClickCard} />
-        <ChatRoomCard onClick={handleClickCard} />
-        <ChatRoomCard onClick={handleClickCard} />
-        <ChatRoomCard onClick={handleClickCard} />
-        <ChatRoomCard onClick={handleClickCard} />
-        <ChatRoomCard onClick={handleClickCard} />
+        <ChatRoomCard onClick={handleClickCard} chatAlert={chatAlert} />
       </StChatListWrapper>
     </StChatListPage>
   );

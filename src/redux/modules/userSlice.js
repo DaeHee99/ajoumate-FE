@@ -1,14 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import socket from "../../api/socket";
 
 const initialState = {
   Status: false,
-  Gender: '',
-  Nickname: 'basic',
-  UserID: ""
-}
+  Gender: "",
+  Nickname: "basic",
+  UserID: "",
+};
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     login: (state, action) => {
@@ -16,10 +17,11 @@ const userSlice = createSlice({
       state.Gender = action.payload.Gender;
       state.Nickname = action.payload.Nickname;
       state.UserID = action.payload.UserID;
+      socket.emit("set socketId", state.UserID);
     },
   },
 });
 
-export const { login } = userSlice.actions
+export const { login } = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

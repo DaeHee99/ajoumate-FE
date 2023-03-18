@@ -1,15 +1,23 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import ChatCard from "./ChatCard";
 
 function ChattingBody() {
+  const chatList = useSelector((state) => state.chatSlice.chatList);
+  const userName = useSelector((state) => state.userSlice.Nickname);
   return (
     <StChattingBody>
-      <ChatCard
-        author="friend"
-        body="안녕하세요 저 택시 탈래요"
-        nickName="나 아님"
-      />
-      <ChatCard author="me" body="네! 어디까지 가시나요?" nickName="me" />
+      {chatList.map((chat) => {
+        return (
+          <ChatCard
+            author={chat.From === userName ? "me" : "friend"}
+            body={chat.Content}
+            nickName={chat.From}
+            key={chat.Date}
+            createdAt={chat.Date}
+          />
+        );
+      })}
     </StChattingBody>
   );
 }
