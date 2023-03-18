@@ -13,7 +13,7 @@ import GenderWrap from "../components/sign/GenderWrap";
 import Button from "../components/sign/Button";
 import Sub from "../components/sign/Sub";
 
-const Signup = () => {
+export default function Signup() {
   const [ID, setID] = useState("");
   const [Password, setPassword] = useState("");
   const [Nickname, setNickname] = useState("");
@@ -171,6 +171,4 @@ const Signup = () => {
       </Container>
     </>
   );
-};
-
-export default Signup;
+}

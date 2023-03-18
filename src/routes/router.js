@@ -3,8 +3,8 @@ import Category from "../pages/Category";
 import ChatRoomPage from "../pages/ChatRoomPage";
 import ChatListPage from "../pages/ChatlistPage";
 import Main from "../pages/main";
-import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
 import MyPage from "../pages/MyPage";
 
 export default function Router() {

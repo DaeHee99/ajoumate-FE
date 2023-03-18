@@ -11,7 +11,7 @@ import Button from "../components/sign/Button";
 import Wrap from "../components/sign/Wrap";
 import Sub from "../components/sign/Sub";
 
-const Signin = () => {
+export default function Signin() {
   const [ID, setID] = useState("");
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -73,6 +73,4 @@ const Signin = () => {
       </Container>
     </>
   );
-};
-
-export default Signin;
+}
