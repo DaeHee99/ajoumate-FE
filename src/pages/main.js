@@ -49,6 +49,14 @@ function Main() {
     if (user.UserID) join();
   }, []);
 
+  const menu = [
+    { title: "식사메이트", code: "MEAL" },
+    { title: "택시메이트", code: "TAXI" },
+    { title: "사물함메이트", code: "locker" },
+    { title: "카페메이트", code: "cafe" },
+    { title: "기타메이트", code: "etc" },
+  ];
+
   return (
     <div
       style={{
@@ -153,7 +161,42 @@ function Main() {
               borderRadius: "2rem",
             }}
           >
-            <div
+            {menu.map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  borderBottom: "1px solid gray",
+                  height: "20%",
+                  display: "flex",
+                  alignItems: "center",
+                  cursor: "pointer",
+                }}
+                onClick={() =>
+                  navigation(`/category/${item.code.toLowerCase()}`)
+                }
+              >
+                <div
+                  style={{
+                    width: "35%",
+                    textAlign: "center",
+                    fontSize: "1.8rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {item.title}
+                </div>
+                <div
+                  style={{
+                    width: "65%",
+                    paddingLeft: "1rem",
+                    fontSize: "1.4rem",
+                  }}
+                >
+                  {recent.find((mate) => mate?.Category === item.code)?.Title}
+                </div>
+              </div>
+            ))}
+            {/* <div
               style={{
                 borderBottom: "1px solid gray",
                 height: "20%",
@@ -306,7 +349,7 @@ function Main() {
               >
                 {recent.find((mate) => mate?.Category === "ETC")?.Title}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
