@@ -38,7 +38,6 @@ export default function MyPage() {
       const { data } = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/apply?UserID=${UserID}`
       );
-
       setApplyList(data.Groups);
     } catch (e) {
       console.error(e);
