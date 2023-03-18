@@ -14,7 +14,7 @@ export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
-      <Route path="/main" element={<Main />} />
+      <Route path="/home" element={<Main />} />
       <Route path="/category" element={<Category />} />
       <Route path="/category/:type" element={<CategoryDetail />} />
       <Route path="/chatlist" element={<ChatListPage />} />
