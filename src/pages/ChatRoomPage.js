@@ -19,10 +19,11 @@ function ChatRoomPage() {
 }
 
 const StChatRoomBody = styled.div`
-  width: 36rem;
-  height: 74rem;
+  width: 100%;
   background-color: #eeeeee;
   display: flex;
+  flex: 1;
+  overflow-x: hidden;
   flex-direction: column;
 `;
 

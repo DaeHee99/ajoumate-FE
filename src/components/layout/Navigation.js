@@ -5,6 +5,7 @@ import { HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoChatbox } from "react-icons/io5";
 import { BsFillPersonFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const StyledNavigation = styled.div`
   width: 100%;
@@ -13,13 +14,12 @@ const StyledNavigation = styled.div`
   flex-direction: row;
   justify-content: center;
   font-size: 30px;
-  position: fixed;
   bottom: 0;
 `;
 const StyledNavigationButton = styled.button`
   width: 25%;
   height: 100%;
-  background-color: #5F95E5;
+  background-color: #5f95e5;
   border: 0;
   outline: 0;
   font-size: 3rem;

@@ -4,14 +4,13 @@ import styled from 'styled-components';
 import Logo from '../../images/Logo.png';
 
 const StyledHeader = styled.div`
-  background-color: #5F95E5;
+  background-color: #5f95e5;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   font-size: 30px;
   padding: 10px 0;
-  position: fixed;
   top: 0;
 `;
 
