@@ -38,8 +38,7 @@ function Main() {
       const { data } = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
       );
-
-      if (data.Status) setJoinList(data.Groups);
+      setJoinList(data.Groups);
     } catch (e) {
       console.error(e);
     }
@@ -113,8 +112,9 @@ function Main() {
                 borderRadius: "2rem",
               }}
             >
-              {JoinList.map((item) => (
+              {JoinList.map((item, index) => (
                 <SliderElement
+                  key={item.index}
                   Title={item.Title}
                   MaximumNumberOfPeople={item.MaximumNumberOfPeople}
                   Gender={item.Gender}
