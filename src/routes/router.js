@@ -18,7 +18,7 @@ export default function Router() {
       <Route path="/category" element={<Category />} />
       <Route path="/category/:type" element={<CategoryDetail />} />
       <Route path="/chatlist" element={<ChatListPage />} />
-      <Route path="/chatroom/:roomNumber" element={<ChatRoomPage />} />
+      <Route path="/chatroom/:users" element={<ChatRoomPage />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/mypage" element={<MyPage />} />

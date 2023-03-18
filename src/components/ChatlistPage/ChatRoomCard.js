@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-function ChatRoomCard({ onClick, chatAlert }) {
+function ChatRoomCard({ onClick, chatAlert, to }) {
   return (
-    <StCardBody onClick={onClick}>
+    <StCardBody onClick={() => onClick(to)}>
       <h3 className="room-category">식사</h3>
       <h3 className="room-title">광교중앙역까지 택시 타실 분</h3>
       {chatAlert && <div>야 알림왔어!!!</div>}
