@@ -31,7 +31,7 @@ export default function Signin() {
       if (data.Status) {
         dispatch(login({ ...data, ID }));
         alert("로그인에 성공했습니다.");
-        navigate("/");
+        navigate("/main");
       } else {
         alert("로그인에 실패했습니다.");
       }
