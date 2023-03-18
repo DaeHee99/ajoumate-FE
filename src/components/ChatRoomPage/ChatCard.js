@@ -3,8 +3,6 @@ import styled, { css } from "styled-components";
 
 function ChatCard({ author, body, nickName, createdAt }) {
   const sliceTime = new Date(createdAt);
-  const createDate = sliceTime.getDate();
-  const createDay = sliceTime.getDay();
   const createHour = sliceTime.getHours();
   const createMinute = sliceTime.getMinutes();
 
