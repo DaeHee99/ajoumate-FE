@@ -40,7 +40,7 @@ export default function CategoryDetailItem(props) {
   const STATUS = "APPLY"
   return (
     <StyledCategoryDetailItem onClick={()=>handleModal()}>
-      <StyledCategoryItemInfo>{props.item.MaximumNumberOfPeople}명 | {dateToString(props.item.Time)} | {props.item.Place}</StyledCategoryItemInfo>
+      <StyledCategoryItemInfo>{props.item.MaximumNumberOfPeople}명 | {props.item.Gender} | {dateToString(props.item.Time)} | {props.item.Place}</StyledCategoryItemInfo>
       <StyledCategoryItemTitle>{props.item.Title}</StyledCategoryItemTitle>
       <StyledCategoryItemContent>{props.item.Comment}</StyledCategoryItemContent>
       <ModalPortals>
