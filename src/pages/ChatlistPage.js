@@ -6,6 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { postChat } from "../redux/modules/chatSlice";
 import { useState, useEffect } from "react";
 
+const StyledTitle = styled.div`
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 10px 15px 10px;
+`;
+
 function ChatListPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();

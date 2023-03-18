@@ -23,11 +23,11 @@ export default function MyPage() {
 
   const join = async () => {
     try {
-      const { data } = await axios.get(
-        `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${UserID}`
+      const  res  = await axios.get(
+        `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
       );
-
-      setJoinList(data.Groups);
+      //console.log(res.data.Groups);
+      setJoinList(res.data.Groups);
     } catch (e) {
       console.error(e);
     }
@@ -35,29 +35,30 @@ export default function MyPage() {
 
   const apply = async () => {
     try {
-      const { data } = await axios.get(
-        `https://ajou-hackathon--qgrwz.run.goorm.site/my/apply?UserID=${UserID}`
+      const res  = await axios.get(
+        `https://ajou-hackathon--qgrwz.run.goorm.site/my/apply?UserID=${user.UserID}`
       );
-
-      setApplyList(data.Groups);
+      //console.log(res.data);
+      setApplyList(res.data);
     } catch (e) {
       console.error(e);
     }
   };
 
   useEffect(() => {
-    setUserID(user.UserID);
+    //setUserID(user.UserID);
     setID(user.ID);
     setNickname(user.Nickname);
     setGender(user.Gender);
 
-    if (UserID) {
+    console.log("userID : ",user.UserID);
+    if(user.UserID){
       join();
       apply();
     }
-  }, []);
+  },[]);
 
-  if (!UserID) return <Signin />;
+  if (!user.UserID) return <Signin />;
   else
     return (
       <>

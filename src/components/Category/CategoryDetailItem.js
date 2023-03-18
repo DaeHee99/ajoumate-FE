@@ -32,14 +32,19 @@ export default function CategoryDetailItem(props) {
       setModal(!modalStatus);
   };
 
+  const dateToString = (rawDate) => {
+    let date = new Date(rawDate);
+    return `${date.getMonth()+1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+  }
+
   const STATUS = "APPLY"
   return (
     <StyledCategoryDetailItem onClick={()=>handleModal()}>
-      <StyledCategoryItemInfo>{props.item.MaximumNumberOfPeople} | {props.item.gender} | {props.item.date} | {props.item.place}</StyledCategoryItemInfo>
-      <StyledCategoryItemTitle>{props.item.title}</StyledCategoryItemTitle>
-      <StyledCategoryItemContent>{props.item.content}</StyledCategoryItemContent>
+      <StyledCategoryItemInfo>{props.item.NumberOfPeople}/{props.item.MaximumNumberOfPeople}명 | {props.item.Gender} | {dateToString(props.item.Time)} | {props.item.Place}</StyledCategoryItemInfo>
+      <StyledCategoryItemTitle>{props.item.Title}</StyledCategoryItemTitle>
+      <StyledCategoryItemContent>{props.item.Comment}</StyledCategoryItemContent>
       <ModalPortals>
-          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={props.item}/>
+          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={props.item} type={props.type}/>
         </ModalPortals>
     </StyledCategoryDetailItem>
   );

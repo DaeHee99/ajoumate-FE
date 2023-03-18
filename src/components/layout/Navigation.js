@@ -2,8 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { HiHome } from "react-icons/hi";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { HiOutlineHome } from "react-icons/hi";
+import { HiMenu } from "react-icons/hi";
+import { HiOutlineMenu } from "react-icons/hi";
 import { IoChatbox } from "react-icons/io5";
+import { IoChatboxOutline } from "react-icons/io5";
+import { BsPerson } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 
 const StyledNavigation = styled.div`
@@ -28,20 +32,36 @@ const StyledNavigationButton = styled.button`
 
 export default function Navigation() {
   const navigation = useNavigate();
-
+  
   return (
     <StyledNavigation>
       <StyledNavigationButton>
-        <HiHome onClick={() => navigation("/home")} />
+        {
+          window.location.pathname === '/home' ?
+          <HiHome onClick={() => navigation("/home")} /> :
+          <HiOutlineHome onClick={() => navigation("/home")} />
+        }
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <RxHamburgerMenu onClick={() => navigation("/category")} />
+        {
+          window.location.pathname === '/category' ?
+          <HiMenu onClick={() => navigation("/category")} /> :
+          <HiOutlineMenu onClick={() => navigation("/category")} />
+        }
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <IoChatbox onClick={() => navigation("/chatlist")} />
+        {
+          window.location.pathname === '/chatlist' ?
+          <IoChatbox onClick={() => navigation("/chatlist")} /> :
+          <IoChatboxOutline onClick={() => navigation("/chatlist")} />
+        }
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <BsFillPersonFill onClick={() => navigation("/mypage")} />
+        {
+          window.location.pathname === '/mypage' ?
+          <BsFillPersonFill onClick={() => navigation("/mypage")} /> :
+          <BsPerson onClick={() => navigation("/mypage")} />
+        }
       </StyledNavigationButton>
     </StyledNavigation>
   );

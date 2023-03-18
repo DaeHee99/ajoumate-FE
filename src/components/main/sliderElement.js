@@ -24,7 +24,7 @@ const SliderElement = (Props) => {
       backgroundColor: "white",
     }}
       >
-      <p>{Props.title}</p>
+      <p>{Props.Title}</p>
       <div
         style={{
           display: "flex",
@@ -41,7 +41,7 @@ const SliderElement = (Props) => {
             marginRight: 2,
           }}
         >
-          {Props.gender}
+          {Props.Gender}
         </div>
         <div
           style={{

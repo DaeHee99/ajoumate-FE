@@ -12,7 +12,7 @@ const StyledWritePage = styled.div`
 
 const StyledWriteForm = styled.div`
   width: 315px;
-  height: 415px;
+  height: 470px;
   border: 1px solid gray;
   border-radius: 8%;
   margin-left: auto;
@@ -64,7 +64,7 @@ const StyledInput = styled.input`
   font-size: 15px;
 `;
 
-const StyledCommentInput = styled.input`
+const StyledCommentInput = styled.textarea`
   margin: 20px;
   height: 100px;
   width: 240px;
@@ -92,42 +92,46 @@ function WritingPage() {
     Time: "",
     Place: "",
     MaximumNumberOfPeople: "",
+    Gender: "EVERY",
     Comment: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(inputs.Title === '') return alert('제목을 입력하세요.');
-    if(inputs.Time === '') return alert('날짜와 시간을 입력하세요.');
-    if(inputs.Place === '') return alert('장소를 입력하세요.');
-    if(inputs.MaximumNumberOfPeople === '') return alert('최대 인원 수를 입력하세요.');
-    if(inputs.Comment === '') return alert('코멘트를 입력하세요.');
+    if (inputs.Title === "") return alert("제목을 입력하세요.");
+    if (inputs.Time === "") return alert("날짜와 시간을 입력하세요.");
+    if (inputs.Place === "") return alert("장소를 입력하세요.");
+    if (inputs.MaximumNumberOfPeople === "")
+      return alert("최대 인원 수를 입력하세요.");
+    if (inputs.Comment === "") return alert("코멘트를 입력하세요.");
 
     let ConvertTime = new Date(inputs.Time).getTime();
+    let CreatedAt = new Date().getTime();
 
     console.log(inputs, ConvertTime);
 
     try {
-      await axios.post(
-        "https://ajou-hackathon--qgrwz.run.goorm.site/group/new",
-        {
+      await axios
+        .post("https://ajou-hackathon--qgrwz.run.goorm.site/group/new", {
           UserID: inputs.UserID,
           Category: inputs.Category,
           Title: inputs.Title,
           Time: ConvertTime,
           Place: inputs.Place,
           MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
+          Gender: inputs.Gender,
           Comment: inputs.Comment,
-        }
-      )
-      .then(response => {
-        if(!response.data.Status) return alert('모집 글 작성에 실패했습니다.');
-        else {
-          alert('모집 글 작성이 완료되었습니다.');
-          navigation(`/category/${inputs.Category.toLowerCase()}`);
-        }
-      })
+          CreatedAt: CreatedAt,
+        })
+        .then((response) => {
+          if (!response.data.Status)
+            return alert("모집 글 작성에 실패했습니다.");
+          else {
+            alert("모집 글 작성이 완료되었습니다.");
+            navigation(`/category/${inputs.Category.toLowerCase()}`);
+          }
+        });
     } catch (e) {
       console.error(e);
     }
@@ -198,6 +202,20 @@ function WritingPage() {
               name="MaximumNumberOfPeople"
               onChange={handleSelect}
             />
+          </Align>
+
+          <Align>
+            <StyledSubTitle>모집성별</StyledSubTitle>
+            <StyledSelect
+              className="Gender"
+              name="Gender"
+              onChange={handleSelect}
+              value={inputs.Gender}
+            >
+              <option value="EVERY">성별무관</option>
+              <option value="FEMALE">여성</option>
+              <option value="MALE">남성</option>
+            </StyledSelect>
           </Align>
 
           <Align>
