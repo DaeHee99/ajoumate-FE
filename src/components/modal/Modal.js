@@ -1,5 +1,25 @@
+import axios from "axios";
+import { useSelector } from "react-redux";
+
 export default function Modal({ show, handleModal, status, info}) {
-    const handleClick = () => alert("신청이 완료되었습니다.");
+  const user = useSelector((state) => state.userSlice);
+
+    const handleClick = async() => {
+      try{
+        console.log(user.UserID);
+
+        const res = await axios.get("https://ajou-hackathon--qgrwz.run.goorm.site/group/join",{
+          params: {
+            GroupID: info.GroupID,
+            UserID: user.UserID
+          }
+        })
+
+        alert("신청이 완료되었습니다.");
+      }catch(err){
+        console.log(err);
+      }
+    };
 
     return (
       <div className={"modal-wrap " + (show ? "active" : "")}>
@@ -48,8 +68,8 @@ export default function Modal({ show, handleModal, status, info}) {
                   신청하기
                 </button>
               </div> : <div style={{textAlign:"right", marginTop:"1rem"}}>
-                <button type="button" style={{background:"5F95E5"}} onClick={handleClick}>
-                  모집하기
+                <button type="button" style={{background:"5F95E5"}} >
+                  모집완료
                 </button>
               </div>)
               }
