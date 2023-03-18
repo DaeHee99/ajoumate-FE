@@ -123,6 +123,7 @@ function Main() {
                       Time={item.Time}
                       Place={item.Place}
                       Comment={item.Comment}
+                      NumberOfPeople={item.NumberOfPeople}
                     />
                   );
                 })}
