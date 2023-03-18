@@ -10,6 +10,7 @@ import Input from "../components/sign/Input";
 import Button from "../components/sign/Button";
 import Wrap from "../components/sign/Wrap";
 import Sub from "../components/sign/Sub";
+import Title from "../components/sign/Title";
 
 export default function Signin() {
   const [ID, setID] = useState("");
@@ -43,6 +44,7 @@ export default function Signin() {
     <>
       <Container>
         <Wrap>
+          <Title>로그인</Title>
           <FormBox>
             <Intro>이메일</Intro>
             <Input
