@@ -6,9 +6,11 @@ const initialState = {
   Gender: "",
   Nickname: "basic",
   UserID: "",
+  ID: "",
 };
 
 const userSlice = createSlice({
+  name: "user",
   name: "user",
   initialState,
   reducers: {
@@ -17,6 +19,7 @@ const userSlice = createSlice({
       state.Gender = action.payload.Gender;
       state.Nickname = action.payload.Nickname;
       state.UserID = action.payload.UserID;
+      state.ID = action.payload.ID;
       socket.emit("set socketId", state.UserID);
     },
   },
