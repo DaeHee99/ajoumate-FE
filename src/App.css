@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.App-base{
+  display: flex;
+  flex-direction: column;
+  font-family: "pretendard";
+  width: 360px;
+  height:800px;
+}
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+
+

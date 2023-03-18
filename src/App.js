@@ -1,8 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+//import router from './routes/router'
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from './pages/main'
 
 function App() {
   return (
+    /*
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -18,6 +23,14 @@ function App() {
           Learn React
         </a>
       </header>
+    </div>
+    */
+    <div className="App-base">
+    <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Main />}></Route>
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
