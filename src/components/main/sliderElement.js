@@ -1,9 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Modal from '../modal/Modal'
+import ModalPortals from "../modal/Portal";
 
 const SliderElement = (Props) => {
-  const navigate = useNavigate();
+  const [modalStatus, setModal] = useState(false);
+    const handleModal = () => {
+      setModal(!modalStatus);
+    };
   return (
-    <div onClick={() => navigate("/response")}
+    <div onClick={() => {
+      handleModal();
+    }}
     style={{
       display: "flex",
       borderRadius: "2rem",
@@ -42,7 +49,11 @@ const SliderElement = (Props) => {
         >
           {Props.people}
         </div>
+        <ModalPortals>
+          <Modal show={modalStatus} handleModal={handleModal}/>
+        </ModalPortals>
       </div>
+
     </div>
   );
 };
