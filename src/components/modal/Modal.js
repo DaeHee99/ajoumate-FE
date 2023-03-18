@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -15,6 +16,8 @@ const StyledButton = styled.button`
 `;
 
 export default function Modal({ show, handleModal, status, info, type}) {
+  const [nickname , setNickname] = useState('');
+
   const user = useSelector((state) => state.userSlice);
 
     const handleClick = async() => {
@@ -32,6 +35,13 @@ export default function Modal({ show, handleModal, status, info, type}) {
       let date = new Date(rawDate);
       return `${date.getMonth()+1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
     }
+
+    useEffect(()=>{
+      axios.get(`https://ajou-hackathon--qgrwz.run.goorm.site/my?UserID=${info.UserID}`)
+      .then(response => {
+        setNickname(response.data.Nickname);
+      })
+    })
 
     return (
       <div className={"modal-wrap " + (show ? "active" : "")}>
@@ -75,6 +85,9 @@ export default function Modal({ show, handleModal, status, info, type}) {
             <div style={{marginTop:"2rem"}}>
                 <div style={{fontSize:"2rem", marginBottom:"0.6rem"}}>코멘트</div>
                 <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.8rem", textAlign : "center"}}>{info.Comment}</div>
+            </div>
+            <div style={{fontSize: '1.5rem', margin: '10px 0'}}>
+              작성자 닉네임 : {nickname}
             </div>
             {status === "MYMATE" || info.UserID === user.UserID ? <></> :
               (info.NumberOfPeople !== info.MaximumNumberOfPeople ? <div style={{textAlign:"right", marginTop:"1rem"}}>
