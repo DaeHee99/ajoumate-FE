@@ -19,9 +19,6 @@ export default function Modal({ show, handleModal, status, info, type}) {
 
     const handleClick = async() => {
       try{
-        //console.log(user.UserID);
-        //console.log(info.GroupID);
-
         const res = await axios.post(`https://ajou-hackathon--qgrwz.run.goorm.site/group/join?GroupID=${info.GroupID}&UserID=${user.UserID}`)
 
         console.log(res);
@@ -79,8 +76,8 @@ export default function Modal({ show, handleModal, status, info, type}) {
                 <div style={{fontSize:"2rem", marginBottom:"0.6rem"}}>코멘트</div>
                 <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.8rem", textAlign : "center"}}>{info.Comment}</div>
             </div>
-            {status === "MYMATE" ? <></> :
-              (status === "APPLY" ? <div style={{textAlign:"right", marginTop:"1rem"}}>
+            {status === "MYMATE" || info.UserID === user.UserID ? <></> :
+              (info.NumberOfPeople !== info.MaximumNumberOfPeople ? <div style={{textAlign:"right", marginTop:"1rem"}}>
                 <StyledButton onClick={handleClick}>
                   신청하기
                 </StyledButton>
