@@ -121,16 +121,13 @@ function WritingPage() {
           Comment: inputs.Comment,
         }
       )
-      .then(() => {
-        navigation(`/category/${inputs.Category.toLowerCase()}`);
+      .then(response => {
+        if(!response.data.Status) return alert('모집 글 작성에 실패했습니다.');
+        else {
+          alert('모집 글 작성이 완료되었습니다.');
+          navigation(`/category/${inputs.Category.toLowerCase()}`);
+        }
       })
-      //console.log(data.UserID);
-      //   if (data.Status) {
-      //     console.log(data);
-      //     alert("모임 생성에 성공했습니다.");
-      //   } else {
-      //     alert("모임 생성에 실패했습니다.");
-      //   }
     } catch (e) {
       console.error(e);
     }
