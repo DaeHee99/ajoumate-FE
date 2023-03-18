@@ -21,6 +21,8 @@ function Main() {
         fontFamily: "pretendard",
         width: "36rem",
         height:"60rem",
+        flex: 1,
+        overflow: "scroll"
       }}>
 
         <div id="my_apply_list">

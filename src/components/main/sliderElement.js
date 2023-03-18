@@ -4,9 +4,13 @@ import ModalPortals from "../modal/Portal";
 
 const SliderElement = (Props) => {
   const [modalStatus, setModal] = useState(false);
-    const handleModal = () => {
+
+  const handleModal = () => {
       setModal(!modalStatus);
-    };
+  };
+
+  const STATUS = "MYMATE"
+
   return (
     <div onClick={() => {
       handleModal();
@@ -50,7 +54,7 @@ const SliderElement = (Props) => {
           {Props.people}
         </div>
         <ModalPortals>
-          <Modal show={modalStatus} handleModal={handleModal}/>
+          <Modal show={modalStatus} handleModal={handleModal} status={STATUS}/>
         </ModalPortals>
       </div>
 

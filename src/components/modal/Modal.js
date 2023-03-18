@@ -1,4 +1,11 @@
-export default function Modal({ show, handleModal}) {
+export default function Modal({ show, handleModal, status}) {
+  /*
+          <div style={{textAlign:"right", marginTop:"1rem"}}>
+            <button type="button">
+              신청하기
+            </button>
+          </div>
+          */
     return (
 
       <div className={"modal-wrap " + (show ? "active" : "")}>
@@ -25,28 +32,33 @@ export default function Modal({ show, handleModal}) {
             transition: "transform ease 0.3s 0.1s"
         }}>
             <div>
-                <div>식사메이트</div>
-                <div style={{border:"1px solid gray", borderRadius: "2rem",}}>
+                <div style={{fontSize:"1.5rem", marginBottom:"0.6rem"}}>식사메이트</div>
+                <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem"}}>
                     <div style={{display:"flex"/*, justifyContent: "space-around"*/}}>
-                        <div style={{width:"2.5rem", borderRight:"1px solid gray", padding:"0 1rem 0 2rem", marginTop:"0.2rem"}}>4인</div>
-                        <div style={{width:"2.5rem", borderRight:"1px solid gray", padding:"0 1rem", marginTop:"0.2rem"}}>무관</div>
-                        <div style={{width:"6.5rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>03/18 12:00</div>
+                        <div style={{width:"5rem", borderRight:"1px solid gray", padding:"0 1rem 0 2rem", marginTop:"0.2rem"}}>4인</div>
+                        <div style={{width:"5rem", borderRight:"1px solid gray", padding:"0 1rem", marginTop:"0.2rem"}}>무관</div>
+                        <div style={{width:"9rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>03/18 12:00</div>
                         <div style={{marginTop:"0.2rem"}}>구학생회관</div>
                     </div>
 
-                    <div>학생식당에서 점심 같이 드실 분</div>
-                    <div>식당 앞에서 만나서 들어가요</div>
+                    <div style={{fontSize:"1.5rem", margin:"1rem 0 0 2rem"}}>학생식당에서 점심 같이 드실 분</div>
                 </div>
             </div>
-            <div>
-                <div>코멘트</div>
-                <div style={{border:"1px solid gray", borderRadius: "2rem",}}>같이 어떤 메뉴 먹어요~</div>
+            <div style={{marginTop:"2rem"}}>
+                <div style={{fontSize:"1.5rem", marginBottom:"0.6rem"}}>코멘트</div>
+                <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem", lineHeight:"6rem", fontSize:"1.5rem", fontFamily:"fantasy", textAlign : "center"}}>같이 어떤 메뉴 먹어요~</div>
             </div>
-          <div style={{textAlign:"right", marginTop:"1rem"}}>
-            <button type="button">
-              신청하기
-            </button>
-          </div>
+            {status === "MYMATE" ? <></> :
+              (status === "APPLY" ? <div style={{textAlign:"right", marginTop:"1rem"}}>
+                <button type="button" style={{background:"5F95E5"}}>
+                  신청하기
+                </button>
+              </div> : <div style={{textAlign:"right", marginTop:"1rem"}}>
+                <button type="button" style={{background:"5F95E5"}}>
+                  모집하기
+                </button>
+              </div>)
+              }
         </div>
       </div>
 
