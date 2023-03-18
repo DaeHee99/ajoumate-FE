@@ -22,7 +22,6 @@ function Main() {
       const res = await axios.get(
         "https://ajou-hackathon--qgrwz.run.goorm.site/group/category/recent"
       );
-      console.log(res);
       setRecent([...recent, ...res.data]);
     } catch (e) {
       console.error(e);
@@ -184,7 +183,7 @@ function Main() {
                 식사메이트
               </div>
               <div style={{ width: "65%", paddingLeft: "1rem" }}>
-                {recent.find((mate) => mate.Category === "MEAL")?.Title}
+                {recent.find((mate) => mate?.Category === "MEAL")?.Title}
               </div>
             </div>
             <div
@@ -208,7 +207,7 @@ function Main() {
                 택시메이트
               </div>
               <div style={{ width: "65%", paddingLeft: "1rem" }}>
-                {recent.find((mate) => mate.Category === "TAXI")?.Title}
+                {recent.find((mate) => mate?.Category === "TAXI")?.Title}
               </div>
             </div>
             <div
@@ -232,7 +231,7 @@ function Main() {
                 사물함메이트
               </div>
               <div style={{ width: "65%", paddingLeft: "1rem" }}>
-                {recent.find((mate) => mate.Category === "LOCKER")?.Title}
+                {recent.find((mate) => mate?.Category === "LOCKER")?.Title}
               </div>
             </div>
             <div
@@ -256,7 +255,7 @@ function Main() {
                 카페메이트
               </div>
               <div style={{ width: "65%", paddingLeft: "1rem" }}>
-                {recent.find((mate) => mate.Category === "CAFE")?.Title}
+                {recent.find((mate) => mate?.Category === "CAFE")?.Title}
               </div>
             </div>
             <div
@@ -279,7 +278,7 @@ function Main() {
                 기타메이트
               </div>
               <div style={{ width: "65%", paddingLeft: "1rem" }}>
-                {recent.find((mate) => mate.Category === "ETC")?.Title}
+                {recent.find((mate) => mate?.Category === "ETC")?.Title}
               </div>
             </div>
           </div>
