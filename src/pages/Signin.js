@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux';
+import { login } from '../redux/modules/userSlice';
 import Container from "../components/sign/Container";
 import FormBox from "../components/sign/FormBox";
 import Intro from "../components/sign/Intro";
@@ -13,6 +15,8 @@ const Signin = () => {
   const [ID, setID] = useState("");
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
+  const user = useSelector((state) => state.userSlice);
+  const dispatch = useDispatch();
 
   const signin = async () => {
     try {
@@ -26,6 +30,7 @@ const Signin = () => {
 
       if (data.Status) {
         // TODO: 전역상태 nickname 저장
+        dispatch(login(data));
         console.log(data);
         alert("로그인에 성공했습니다.");
         navigate("/");
