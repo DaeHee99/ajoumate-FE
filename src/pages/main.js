@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import SliderElement from "../components/main/sliderElement";
+
 function Main() {
+    const navigation = useNavigate();
+
     var settings = {
       dots: true,
       infinite: true,
@@ -18,6 +22,8 @@ function Main() {
         fontFamily: "pretendard",
         width: "36rem",
         height:"80rem",
+        flex: 1,
+        overflow: 'scroll',
       }}>
 
         <div id="my_apply_list">
@@ -96,23 +102,23 @@ function Main() {
               marginLeft:"10%",
               borderRadius: "2rem",
               }}>
-              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center"}}>
+              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center", cursor: 'pointer'}} onClick={()=>navigation('/category/meal')}>
                 <div style={{width:"35%",textAlign:"center", fontSize:"1.5rem", fontWeight:"bold"}}>식사메이트</div>
                 <div style={{width:"65%", paddingLeft:"1rem"}}>광교중앙역까지 택시 타실 분</div>
               </div>
-              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center"}}>
+              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center", cursor: 'pointer'}} onClick={()=>navigation('/category/taxi')}>
                 <div style={{width:"35%",textAlign:"center", fontSize:"1.5rem", fontWeight:"bold"}}>택시메이트</div>
                 <div style={{width:"65%", paddingLeft:"1rem"}}>광교중앙역까지 택시 타실 분</div>
               </div>
-              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center"}}>
+              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center", cursor: 'pointer'}} onClick={()=>navigation('/category/locker')}>
                 <div style={{width:"35%",textAlign:"center", fontSize:"1.5rem", fontWeight:"bold"}}>사물함메이트</div>
                 <div style={{width:"65%", paddingLeft:"1rem"}}>광교중앙역까지 택시 타실 분</div>
               </div>
-              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center"}}>
+              <div style={{borderBottom:"1px solid gray", height:"20%", display: "flex", alignItems : "center", cursor: 'pointer'}} onClick={()=>navigation('/category/cafe')}>
                 <div style={{width:"35%",textAlign:"center", fontSize:"1.5rem", fontWeight:"bold"}}>카페메이트</div>
                 <div style={{width:"65%", paddingLeft:"1rem"}}>광교중앙역까지 택시 타실 분</div>
               </div>
-              <div style={{height:"20%", display: "flex", alignItems : "center"}}>
+              <div style={{height:"20%", display: "flex", alignItems : "center", cursor: 'pointer'}} onClick={()=>navigation('/category/etc')}>
                 <div style={{width:"35%",textAlign:"center", fontSize:"1.5rem", fontWeight:"bold"}}>기타메이트</div>
                 <div style={{width:"65%", paddingLeft:"1rem"}}>광교중앙역까지 택시 타실 분</div>
               </div>

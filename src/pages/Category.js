@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CategoryItem from "../components/Category/CategoryItem";
+import WriteButton from "../components/Category/WriteButton";
 
 const StyledCategoryPage = styled.div`
   width: 100%;
@@ -11,20 +12,6 @@ const StyledTitle = styled.div`
   font-size: 25px;
   font-weight: bold;
   margin: 0 10px;
-`;
-const StyledButton = styled.button`
-  font-size: 18px;
-  border-radius: 10px;
-  border: 0;
-  outline: 0;
-  background-color: #5f95e5;
-  color: white;
-  padding: 10px 15px;
-  cursor: pointer;
-  position: fixed;
-  top: 83%;
-  right: 5%;
-  z-index: 99;
 `;
 
 let CategoryData = [
@@ -57,9 +44,7 @@ export default function Category() {
       {CategoryData.map((item) => (
         <CategoryItem item={item} key={item.title} />
       ))}
-      <StyledButton onClick={() => alert("글 작성할거죠?")}>
-        글 작성
-      </StyledButton>
+      <WriteButton />
     </StyledCategoryPage>
   );
 }
