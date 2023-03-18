@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Category from "../pages/Category";
+import CategoryDetail from "../pages/CategoryDetail";
 import ChatRoomPage from "../pages/ChatRoomPage";
 import ChatListPage from "../pages/ChatlistPage";
 import Main from "../pages/main";
@@ -15,6 +16,7 @@ export default function Router() {
       <Route path="/" element={<Splash />} />
       <Route path="/main" element={<Main />} />
       <Route path="/category" element={<Category />} />
+      <Route path="/category/:type" element={<CategoryDetail />} />
       <Route path="/chatlist" element={<ChatListPage />} />
       <Route path="/chatroom/:roomNumber" element={<ChatRoomPage />} />
       <Route path="/signin" element={<Signin />} />

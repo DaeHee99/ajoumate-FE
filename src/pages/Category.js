@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CategoryItem from "../components/Category/CategoryItem";
-import { useNavigate } from "react-router-dom";
+import WriteButton from "../components/Category/WriteButton";
 
 const StyledCategoryPage = styled.div`
   width: 100%;
@@ -12,20 +12,6 @@ const StyledTitle = styled.div`
   font-size: 25px;
   font-weight: bold;
   margin: 0 10px;
-`;
-const StyledButton = styled.button`
-  font-size: 18px;
-  border-radius: 10px;
-  border: 0;
-  outline: 0;
-  background-color: #5f95e5;
-  color: white;
-  padding: 10px 15px;
-  cursor: pointer;
-  position: fixed;
-  top: 83%;
-  right: 5%;
-  z-index: 99;
 `;
 
 let CategoryData = [
@@ -52,16 +38,13 @@ let CategoryData = [
 ];
 
 export default function Category() {
-  const navigation = useNavigate();
   return (
     <StyledCategoryPage>
       <StyledTitle>카테고리</StyledTitle>
       {CategoryData.map((item) => (
         <CategoryItem item={item} key={item.title} />
       ))}
-      <StyledButton onClick={() => navigation("/writepage")}>
-        글 작성
-      </StyledButton>
+      <WriteButton />
     </StyledCategoryPage>
   );
 }

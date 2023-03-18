@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledCategoryItem = styled.div`
@@ -19,8 +20,19 @@ const StyledCategoryItemContent = styled.div`
 `;
 
 export default function CategoryItem(props) {
+  const navigation = useNavigate();
+  const [type, setType] = useState('');
+
+  useEffect(() => {
+    if(props.item.title === '식사 메이트') setType('meal');
+    else if(props.item.title === '택시 메이트') setType('taxi');
+    else if(props.item.title === '사물함 메이트') setType('locker');
+    else if(props.item.title === '카페 메이트') setType('cafe');
+    else if(props.item.title === '기타 메이트') setType('etc');
+  }, [])
+
   return (
-    <StyledCategoryItem onClick={()=>alert(props.item.title)}>
+    <StyledCategoryItem onClick={()=>navigation(`/category/${type}`)}>
       <StyledCategoryItemTitle>{props.item.title}</StyledCategoryItemTitle>
       <StyledCategoryItemContent>{props.item.content}</StyledCategoryItemContent>
     </StyledCategoryItem>
