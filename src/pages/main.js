@@ -1,6 +1,5 @@
 import Slider from "react-slick";
 import SliderElement from "../components/main/sliderElement";
-
 function Main() {
     var settings = {
       dots: true,
