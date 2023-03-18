@@ -94,14 +94,14 @@ function Main() {
 
 
         <div id="mate_list" style={{marginTop:"4rem"}}>
-          <div style={{ marginLeft: 20, marginTop: 15, marginBottom:15, fontSize:"2rem", fontWeight:"bolder" }}>
+          <div style={{ marginLeft: 30, marginTop: 15, marginBottom:15, fontSize:"2rem", fontWeight:"bolder" }}>
             메이트 목록
           </div>
           <div id="mate_board">
             <div style={{
               border:"1px solid gray",
               width:"80%",
-              height:"25rem",
+              height:"30rem",
               marginLeft:"10%",
               borderRadius: "2rem",
               }}>
