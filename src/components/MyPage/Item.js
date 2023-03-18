@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import Modal from "../modal/Modal";
+import ModalPortals from "../modal/Portal";
+import { useState } from "react";
 
 const Align = styled.li`
   display: flex;
@@ -27,10 +30,18 @@ const Title = styled.p`
 `;
 
 export default function Item({ category, title, ...rest }) {
+  const [modalStatus, setModal] = useState(false);
+  const handleModal = () => {
+    setModal(!modalStatus);
+};
+  const STATUS = "MYMATE"
   return (
-    <Align {...rest}>
+    <Align {...rest} >
       <Category>{category}</Category>
       <Title>{title}</Title>
+      <ModalPortals>
+          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={props.item}/>
+        </ModalPortals>
     </Align>
   );
 }
