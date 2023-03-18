@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import ChatRoomCard from "../components/ChatlistPage/ChatRoomCard";
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 
-function ChatListPage() {
+function ChatListPage({ socket }) {
   const navigate = useNavigate();
+
+  socket.on("message", (msg) => {
+    console.log(msg);
+  });
   const handleClickCard = () => {
     navigate("/chatroom/1");
   };

@@ -4,10 +4,14 @@ import InputGroup from "../components/ChatRoomPage/InputGroup";
 import RoomHeader from "../components/ChatRoomPage/RoomHeader";
 import { io } from "socket.io-client";
 
-function ChatRoomPage() {
-  const socket = io("uri", { transports: ["websocket"] });
-  socket.on("connect", () => {
-    console.log("socket.connected");
+function ChatRoomPage({ socket }) {
+  socket.emit("all message", () => {});
+  socket.on("message", (msg) => {
+    console.log(msg);
+  });
+
+  socket.on("all message", (allmsg) => {
+    console.log(allmsg);
   });
   return (
     <StChatRoomBody>
