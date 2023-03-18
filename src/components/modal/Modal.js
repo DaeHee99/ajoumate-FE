@@ -52,9 +52,9 @@ export default function Modal({ show, handleModal, status, info}) {
                 <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem"}}>
                     <div style={{display:"flex"}}>
                         <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"2rem", marginTop:"0.2rem"}}>{info.MaximumNumberOfPeople}</div>
-                        <div style={{width:"4rem", borderRight:"1px solid gray", paddingLeft:"1rem", marginTop:"0.2rem"}}>{info.Gender}</div>
-                        <div style={{width:"8.5rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>{dateToString(info.Time)}</div>
-                        <div style={{marginTop:"0.2rem"}}>{info.Place}</div>
+                        <div style={{width:"4.5rem", borderRight:"1px solid gray", paddingLeft:"1rem", marginTop:"0.2rem"}}>{info.Gender}</div>
+                        <div style={{width:"7.5rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>{dateToString(info.Time)}</div>
+                        <div style={{marginTop:"0.2rem", paddingLeft:"1rem"}}>{info.Place}</div>
                     </div>
 
                     <div style={{fontSize:"1.5rem", margin:"1rem 0 0 2rem"}}>{info.Title}</div>
