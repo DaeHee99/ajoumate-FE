@@ -26,11 +26,11 @@ const Title = styled.p`
   margin: 0 1.6rem 0 0;
 `;
 
-export default function Item({ category, title, ...rest }) {
+export default function Item({ info, ...rest }) {
   return (
     <Align {...rest}>
-      <Category>{category}</Category>
-      <Title>{title}</Title>
+      <Category>{info.Category}</Category>
+      <Title>{info.Title}</Title>
     </Align>
   );
 }
