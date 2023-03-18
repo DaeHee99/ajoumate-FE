@@ -84,9 +84,9 @@ export default function MyPage() {
             </Box>
             <Intro>나의 신청 목록</Intro>
             <Box>
-              {JoinList.map((item) => (
+              {JoinList.map((item, index) => (
                 <Item
-                  key={item.Title}
+                  key={item.index}
                   category={item.Category}
                   title={item.Title}
                 />
@@ -94,9 +94,9 @@ export default function MyPage() {
             </Box>
             <Intro>내가 모집한 목록</Intro>
             <Box>
-              {ApplyList.map((item) => (
+              {ApplyList.map((item, index) => (
                 <Item
-                  key={item.Title}
+                  key={item.index}
                   category={item.Category}
                   title={item.Title}
                 />
