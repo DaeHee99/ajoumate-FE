@@ -168,6 +168,7 @@ function Main() {
                   width: "35%",
                   textAlign: "center",
                   fontSize: "1.8rem",
+                  marginLeft: "10px",
                   fontWeight: "bold",
                 }}
               >
@@ -199,6 +200,7 @@ function Main() {
                   textAlign: "center",
                   fontSize: "1.8rem",
                   fontWeight: "bold",
+                  marginLeft: "10px",
                 }}
               >
                 택시메이트
@@ -229,6 +231,7 @@ function Main() {
                   textAlign: "center",
                   fontSize: "1.8rem",
                   fontWeight: "bold",
+                  marginLeft: "10px",
                 }}
               >
                 사물함메이트
@@ -259,6 +262,7 @@ function Main() {
                   textAlign: "center",
                   fontSize: "1.8rem",
                   fontWeight: "bold",
+                  marginLeft: "10px",
                 }}
               >
                 카페메이트
@@ -288,6 +292,7 @@ function Main() {
                   textAlign: "center",
                   fontSize: "1.8rem",
                   fontWeight: "bold",
+                  marginLeft: "10px",
                 }}
               >
                 기타메이트
