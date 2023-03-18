@@ -60,6 +60,7 @@ function ChatListPage() {
               onClick={handleClickCard}
               chatAlert={chatAlert.includes(room) ? true : false}
               to={room}
+              userName={userName}
               key={room}
             />
           );
