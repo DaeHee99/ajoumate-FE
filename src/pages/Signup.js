@@ -12,8 +12,9 @@ import Align from "../components/sign/Align";
 import GenderWrap from "../components/sign/GenderWrap";
 import Button from "../components/sign/Button";
 import Sub from "../components/sign/Sub";
+import Title from "../components/sign/Title";
 
-const Signup = () => {
+export default function Signup() {
   const [ID, setID] = useState("");
   const [Password, setPassword] = useState("");
   const [Nickname, setNickname] = useState("");
@@ -99,6 +100,7 @@ const Signup = () => {
     <>
       <Container>
         <Wrap>
+          <Title>회원가입</Title>
           <FormBox>
             <Intro>이메일</Intro>
             <Align>
@@ -171,6 +173,4 @@ const Signup = () => {
       </Container>
     </>
   );
-};
-
-export default Signup;
+}

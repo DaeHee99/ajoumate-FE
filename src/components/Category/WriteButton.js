@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -18,8 +19,10 @@ const StyledButton = styled.button`
 
 
 export default function WriteButton() {
+  const navigation = useNavigate();
+
   return (
-    <StyledButton onClick={() => alert("글 작성할거죠?")}>
+    <StyledButton onClick={() => navigation("/writepage")}>
       글 작성
     </StyledButton>
   );

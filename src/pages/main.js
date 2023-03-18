@@ -4,8 +4,7 @@ import SliderElement from "../components/main/sliderElement";
 
 function Main() {
     const navigation = useNavigate();
-
-    var settings = {
+    const settings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -15,21 +14,23 @@ function Main() {
       slidesToShow: 3,
       slidesToScroll: 3,
     };
+
     return (
       <div style={{
         display: "flex",
         flexDirection: "column",
         fontFamily: "pretendard",
         width: "36rem",
-        height:"80rem",
+        height:"60rem",
         flex: 1,
-        overflow: 'scroll',
+        overflow: "scroll"
       }}>
 
         <div id="my_apply_list">
         <div style={{ marginLeft: 20, marginTop: 15, fontSize:"2rem", fontWeight:"bolder" }}>
           나의 신청 목록
         </div>
+
         <div id="slider_box_out" style={{
           display: "flex",
           alignItems: "center",
@@ -37,7 +38,7 @@ function Main() {
           marginTop: "10px",
           marginLeft: "4%",
           height: "15rem",
-          width: "91%",
+          width: "90%",
           backgroundColor: "white",
           boxShadow: "3px 3px 3px #DCDCDC",
           border: "1px solid white",
@@ -89,6 +90,8 @@ function Main() {
           </div>
         </div>
         </div>
+
+
 
         <div id="mate_list" style={{marginTop:"4rem"}}>
           <div style={{ marginLeft: 20, marginTop: 15, marginBottom:15, fontSize:"2rem", fontWeight:"bolder" }}>
