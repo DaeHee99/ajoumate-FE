@@ -18,7 +18,7 @@ export default function Header() {
   const navigation = useNavigate();
 
   return (
-    <StyledHeader onClick={()=>navigation('/')}>
+    <StyledHeader onClick={()=>navigation('/main')}>
       <img src={Logo} alt='Logo' width={50} style={{borderRadius: '50%', marginRight: 15}}/>
       아주 메이트
     </StyledHeader>
