@@ -29,6 +29,21 @@ export const __getinitialChatList = createAsyncThunk(
   }
 );
 
+export const __createNewChat = createAsyncThunk(
+  "/chat/__createNewChat",
+  async (payload, thunkAPI) => {
+    try {
+      const requestRes = await axios.post(
+        "https://ajou-hackathon--qgrwz.run.goorm.site",
+        {}
+      );
+      return thunkAPI.fulfillWithValue(requestRes.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
 const chatSlice = createSlice({
   name: "chatSlice",
   initialState,
