@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import WritingButton from "../components/Writing/WritingButton";
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const StyledWritePage = styled.div`
   width: 100%;
@@ -82,6 +82,7 @@ const StyledSelect = styled.select`
 `;
 
 function WritingPage() {
+  const navigation = useNavigate();
   //js하는 부분
   const user = useSelector((state) => state.userSlice);
   const [inputs, setInputs] = useState({
@@ -114,7 +115,10 @@ function WritingPage() {
           MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
           Comment: inputs.Comment,
         }
-      );
+      )
+      .then(() => {
+        navigation(`/category/${inputs.Category.toLowerCase()}`);
+      })
       //console.log(data.UserID);
       //   if (data.Status) {
       //     console.log(data);
