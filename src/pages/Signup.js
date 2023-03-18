@@ -12,6 +12,7 @@ import Align from "../components/sign/Align";
 import GenderWrap from "../components/sign/GenderWrap";
 import Button from "../components/sign/Button";
 import Sub from "../components/sign/Sub";
+import Title from "../components/sign/Title";
 
 export default function Signup() {
   const [ID, setID] = useState("");
@@ -99,6 +100,7 @@ export default function Signup() {
     <>
       <Container>
         <Wrap>
+          <Title>회원가입</Title>
           <FormBox>
             <Intro>이메일</Intro>
             <Align>
