@@ -8,6 +8,11 @@
     transform: rotate(360deg);
   }
 }
+.slick-slide{
+  width: 12rem !important;
+  height: 100px;
+}
+
 .modal-wrap {
   position: fixed;
   top: 0;

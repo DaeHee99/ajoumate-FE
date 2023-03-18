@@ -65,6 +65,7 @@ export default function Modal({ show, handleModal, status, info, type}) {
                 <div style={{fontSize:"2rem", marginBottom:"0.6rem"}}>{type}</div>
                 <div style={{border:"1px solid gray", borderRadius: "2rem", height:"6rem"}}>
                     <div style={{display:"flex"}}>
+
                         <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"2rem", marginTop:"0.2rem"}}>{info.NumberOfPeople+'/'+info.MaximumNumberOfPeople+'명'}</div>
                         <div style={{width:"6rem", borderRight:"1px solid gray", paddingLeft:"0.5rem", marginTop:"0.2rem"}}>{info.Gender}</div>
                         <div style={{width:"7.5rem",  padding:"0 1rem ", borderRight:"1px solid gray"}}>{dateToString(info.Time)}</div>
