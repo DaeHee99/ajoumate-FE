@@ -25,7 +25,7 @@ function ChatListPage() {
     socket.emit("get room list", userName);
     socket.on("get room list", (res) => {
       console.log(res);
-      setMyRooms([...myRooms, ...res]);
+      setMyRooms([...res]);
     });
     socket.on("message", (msg) => {
       console.log(msg);
@@ -33,7 +33,7 @@ function ChatListPage() {
       dispatch(postChat(msg));
     });
     socket.on("create room", (rooms) => {
-      setMyRooms([...myRooms, ...rooms]);
+      setMyRooms([...rooms]);
     });
   }, []);
   const handleClickCard = (to) => {
