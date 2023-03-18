@@ -31,14 +31,13 @@ export default function CategoryDetail() {
     axios.get(`https://ajou-hackathon--qgrwz.run.goorm.site/group/category?Category=${type.toUpperCase()}`)
     .then(response => {
       setCategoryDetailData(response.data);
-      console.log(response.data);
     })
   }, [])
 
   return (
     <StyledCategoryDetailPage>
       <StyledTitle>{title}</StyledTitle>
-      {CategoryDetailData.reverse().map((item, index) => (
+      {CategoryDetailData.sort((a, b) => a.Time - b.Time).map((item, index) => (
         <CategoryDetailItem item={item} key={index} />
       ))}
       <WriteButton />

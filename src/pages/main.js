@@ -25,8 +25,7 @@ function Main() {
       const res = await axios.get(
         "https://ajou-hackathon--qgrwz.run.goorm.site/group/category/recent"
       );
-      console.log(res);
-      if (res.data.Status) {
+      if (res.status === 200) {
         setRecent([...recent, ...res.data]);
       }
     } catch (e) {
@@ -186,9 +185,9 @@ function Main() {
           <div
             style={{
               border: "1px solid gray",
-              width: "80%",
+              width: "90%",
               height: "30rem",
-              marginLeft: "10%",
+              margin: "0 auto",
               borderRadius: "2rem",
             }}
           >
@@ -206,13 +205,13 @@ function Main() {
                 style={{
                   width: "35%",
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.8rem",
                   fontWeight: "bold",
                 }}
               >
                 식사메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem" }}>
+              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
                 {recent.find((mate) => mate?.Category === "MEAL")?.Title}
               </div>
             </div>
@@ -230,13 +229,13 @@ function Main() {
                 style={{
                   width: "35%",
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.8rem",
                   fontWeight: "bold",
                 }}
               >
                 택시메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem" }}>
+              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
                 {recent.find((mate) => mate?.Category === "TAXI")?.Title}
               </div>
             </div>
@@ -254,13 +253,13 @@ function Main() {
                 style={{
                   width: "35%",
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.8rem",
                   fontWeight: "bold",
                 }}
               >
                 사물함메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem" }}>
+              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
                 {recent.find((mate) => mate?.Category === "LOCKER")?.Title}
               </div>
             </div>
@@ -278,13 +277,13 @@ function Main() {
                 style={{
                   width: "35%",
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.8rem",
                   fontWeight: "bold",
                 }}
               >
                 카페메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem" }}>
+              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
                 {recent.find((mate) => mate?.Category === "CAFE")?.Title}
               </div>
             </div>
@@ -301,13 +300,13 @@ function Main() {
                 style={{
                   width: "35%",
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.8rem",
                   fontWeight: "bold",
                 }}
               >
                 기타메이트
               </div>
-              <div style={{ width: "65%", paddingLeft: "1rem" }}>
+              <div style={{ width: "65%", paddingLeft: "1rem", fontSize: "1.4rem" }}>
                 {recent.find((mate) => mate?.Category === "ETC")?.Title}
               </div>
             </div>
