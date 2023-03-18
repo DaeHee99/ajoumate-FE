@@ -23,7 +23,7 @@ export default function MyPage() {
 
   const join = async () => {
     try {
-      const  res  = await axios.get(
+      const res = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
       );
       //console.log(res.data.Groups);
@@ -35,7 +35,7 @@ export default function MyPage() {
 
   const apply = async () => {
     try {
-      const res  = await axios.get(
+      const res = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/apply?UserID=${user.UserID}`
       );
       //console.log(res.data);
@@ -51,14 +51,12 @@ export default function MyPage() {
     setNickname(user.Nickname);
     setGender(user.Gender);
 
-    console.log("userID : ",user.UserID);
-    if(user.UserID){
+    console.log("userID : ", user.UserID);
+    if (user.UserID) {
       join();
       apply();
     }
-
-
-  },[]);
+  }, []);
 
   if (!user.UserID) return <Signin />;
   else
@@ -85,21 +83,13 @@ export default function MyPage() {
             <Intro>나의 신청 목록</Intro>
             <Box>
               {JoinList.map((item, index) => (
-                <Item
-                  key={item.index}
-                  category={item.Category}
-                  title={item.Title}
-                />
+                <Item key={index} category={item.Category} title={item.Title} />
               ))}
             </Box>
             <Intro>내가 모집한 목록</Intro>
             <Box>
               {ApplyList.map((item, index) => (
-                <Item
-                  key={item.index}
-                  category={item.Category}
-                  title={item.Title}
-                />
+                <Item key={index} category={item.Category} title={item.Title} />
               ))}
             </Box>
           </Wrap>
