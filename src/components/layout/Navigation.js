@@ -5,7 +5,6 @@ import { HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoChatbox } from "react-icons/io5";
 import { BsFillPersonFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
 
 const StyledNavigation = styled.div`
   width: 100%;
