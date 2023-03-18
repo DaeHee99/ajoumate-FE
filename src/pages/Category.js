@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CategoryItem from "../components/Category/CategoryItem";
+import { useNavigate } from "react-router-dom";
 
 const StyledCategoryPage = styled.div`
   width: 100%;
@@ -51,13 +52,14 @@ let CategoryData = [
 ];
 
 export default function Category() {
+  const navigation = useNavigate();
   return (
     <StyledCategoryPage>
       <StyledTitle>카테고리</StyledTitle>
       {CategoryData.map((item) => (
         <CategoryItem item={item} key={item.title} />
       ))}
-      <StyledButton onClick={() => alert("글 작성할거죠?")}>
+      <StyledButton onClick={() => navigation("/writepage")}>
         글 작성
       </StyledButton>
     </StyledCategoryPage>
