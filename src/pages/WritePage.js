@@ -1,7 +1,13 @@
 import styled from "styled-components";
-import WritingButton from "../components/WritingButton";
+import WritingButton from "../components/Writing/WritingButton";
 import axios from "axios";
 import { useState } from "react";
+
+const StyledWritePage = styled.div`
+  width: 100%;
+  flex: 1;
+  overflow-y: scroll;
+`;
 
 const StyledTitle = styled.div`
   font-size: 25px;
@@ -21,11 +27,18 @@ const StyledSubTitle = styled.div`
 `;
 
 const StyledButton = styled.button`
-  border-radius: 20%;
-  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
   background-color: #5f95e5;
-  float: right;
-  margin-right: 20px;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: fixed;
+  top: 83%;
+  right: 5%;
+  z-index: 99;
 `;
 
 const StyledInput = styled.input`
@@ -83,9 +96,7 @@ function WritingPage() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
-
+    <StyledWritePage>
       <StyledTitle>신청글 작성</StyledTitle>
 
       <div className="WriteForm">
@@ -158,7 +169,7 @@ function WritingPage() {
           <StyledButton onClick={handleSubmit}>글 작성하기</StyledButton>
         </form>
       </div>
-    </div>
+    </StyledWritePage>
   );
 }
 

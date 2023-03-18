@@ -1,18 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
 import styled from "styled-components";
-import WritingPage from "./pages/WritePage";
-
-// const form = styled.div`
-//   width: 5rem;
-//   height: 5rem;
-//   background: black;
-//   border-radius: 50%;
-// `; 모르겠으니까 나중에 알아보기...
+import "./App.css";
+import Header from "./components/layout/Header";
+import Navigation from "./components/layout/Navigation";
+import Router from "./routes/router";
 
 function App() {
-  //js하는 부분
-  return <WritingPage />;
+  return (
+    <StAppContainer>
+      <Header />
+      <Router />
+      <Navigation />
+    </StAppContainer>
+  );
 }
+
+const StAppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
 export default App;
