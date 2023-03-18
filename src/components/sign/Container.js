@@ -5,6 +5,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 7rem;
+  flex: 1;
+  overflow-y: scroll;
 `;
 
 export default Container;
