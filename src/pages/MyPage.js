@@ -23,11 +23,8 @@ export default function MyPage() {
 
   const join = async () => {
     try {
-      const { data } = await axios.post(
-        "https://ajou-hackathon--qgrwz.run.goorm.site/my/join",
-        {
-          UserID,
-        }
+      const { data } = await axios.get(
+        `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${UserID}`
       );
 
       setJoinList(data.Groups);
@@ -38,11 +35,8 @@ export default function MyPage() {
 
   const apply = async () => {
     try {
-      const { data } = await axios.post(
-        "https://ajou-hackathon--qgrwz.run.goorm.site/my/apply",
-        {
-          UserID,
-        }
+      const { data } = await axios.get(
+        `https://ajou-hackathon--qgrwz.run.goorm.site/my/apply?UserID=${UserID}`
       );
 
       setApplyList(data.Groups);
