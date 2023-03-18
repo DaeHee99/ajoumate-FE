@@ -3,10 +3,13 @@ import Slider from "react-slick";
 import SliderElement from "../components/main/sliderElement";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function Main() {
   const navigation = useNavigate();
   const [recent, setRecent] = useState([]);
+  const [JoinList, setJoinList] = useState([]);
+  const user = useSelector((state) => state.userSlice);
   const settings = {
     dots: true,
     infinite: true,
@@ -23,7 +26,21 @@ function Main() {
         "https://ajou-hackathon--qgrwz.run.goorm.site/group/category/recent"
       );
       console.log(res);
-      setRecent([...recent, ...res.data]);
+      if (res.data.Status) {
+        setRecent([...recent, ...res.data]);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const join = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
+      );
+
+      if (data.Status) setJoinList(data.Groups);
     } catch (e) {
       console.error(e);
     }
@@ -31,7 +48,9 @@ function Main() {
 
   useEffect(() => {
     getRecent();
+    if (user.UserID) join();
   }, []);
+
   return (
     <div
       style={{
@@ -95,7 +114,17 @@ function Main() {
                 borderRadius: "2rem",
               }}
             >
-              <SliderElement
+              {JoinList.map((item) => (
+                <SliderElement
+                  title={item.Title}
+                  MaximumNumberOfPeople={item.MaximumNumberOfPeople}
+                  gender={item.Gender}
+                  date={item.Time}
+                  place={item.Place}
+                  content={item.Comment}
+                />
+              ))}
+              {/* <SliderElement
                 title={"길찾기에 필요한 인지적 ..."}
                 MaximumNumberOfPeople={"1/2인"}
                 gender={"남"}
@@ -135,7 +164,7 @@ function Main() {
                 date={"03/18 19:00"}
                 place={"아주대 삼거리"}
                 content={"내용입니다!~~~"}
-              />
+              /> */}
             </Slider>
           </div>
         </div>
