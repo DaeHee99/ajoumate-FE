@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoChatbox } from "react-icons/io5";
@@ -32,16 +32,16 @@ export default function Navigation() {
   return (
     <StyledNavigation>
       <StyledNavigationButton>
-        <HiHome onClick={()=>navigation('/')}/>
+        <HiHome onClick={() => navigation("/")} />
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <RxHamburgerMenu onClick={()=>navigation('/category')}/>
+        <RxHamburgerMenu onClick={() => navigation("/category")} />
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <IoChatbox onClick={()=>navigation('/chatroom')}/>
+        <IoChatbox onClick={() => navigation("/chatlist")} />
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <BsFillPersonFill onClick={()=>navigation('/mypage')}/>
+        <BsFillPersonFill onClick={() => navigation("/mypage")} />
       </StyledNavigationButton>
     </StyledNavigation>
   );
