@@ -1,12 +1,25 @@
 import styled from "styled-components";
-import WritingButton from "../components/Writing/WritingButton";
 import axios from "axios";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const StyledWritePage = styled.div`
   width: 100%;
   flex: 1;
   overflow-y: scroll;
+`;
+
+const StyledWriteForm = styled.div`
+  width: 315px;
+  height: 415px;
+  border: 1px solid gray;
+  border-radius: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
 `;
 
 const StyledTitle = styled.div`
@@ -17,13 +30,17 @@ const StyledTitle = styled.div`
 `;
 const Align = styled.div`
   display: flex;
-  margin: 15px;
+  height: 35px;
+  margin: 10px;
 `;
 
 const StyledSubTitle = styled.div`
+  width: 90px;
   font-size: 20px;
   font-weight: bold;
-  margin: 0 10px;
+
+  margin-left: 15px;
+  padding-top: 3px;
 `;
 
 const StyledButton = styled.button`
@@ -42,18 +59,34 @@ const StyledButton = styled.button`
 `;
 
 const StyledInput = styled.input`
+  height: 30px;
+  width: 185px;
   font-size: 15px;
+`;
+
+const StyledCommentInput = styled.input`
+  margin: 20px;
+  height: 100px;
+  width: 240px;
+  margin: 0 auto;
+  font-size: 15px;
+  justify-content: center;
+  text-align: center;
+  display: block;
 `;
 
 const StyledSelect = styled.select`
   background-color: #ededed;
+  height: 30px;
   width: 80px;
 `;
 
 function WritingPage() {
+  const navigation = useNavigate();
   //js하는 부분
+  const user = useSelector((state) => state.userSlice);
   const [inputs, setInputs] = useState({
-    UserID: "id123",
+    UserID: user.UserID,
     Category: "TAXI",
     Title: "",
     Time: "",
@@ -64,27 +97,37 @@ function WritingPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(inputs);
+
+    if(inputs.Title === '') return alert('제목을 입력하세요.');
+    if(inputs.Time === '') return alert('날짜와 시간을 입력하세요.');
+    if(inputs.Place === '') return alert('장소를 입력하세요.');
+    if(inputs.MaximumNumberOfPeople === '') return alert('최대 인원 수를 입력하세요.');
+    if(inputs.Comment === '') return alert('코멘트를 입력하세요.');
+
+    let ConvertTime = new Date(inputs.Time).getTime();
+
+    console.log(inputs, ConvertTime);
+
     try {
-      const { data } = await axios.post(
+      await axios.post(
         "https://ajou-hackathon--qgrwz.run.goorm.site/group/new",
         {
           UserID: inputs.UserID,
           Category: inputs.Category,
-          UserID: inputs.UserID,
           Title: inputs.Title,
-          Time: inputs.Time,
+          Time: ConvertTime,
           Place: inputs.Place,
-          MaximumNumberOfPeople: inputs.MaximumNumberOfPeople,
+          MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
           Comment: inputs.Comment,
         }
-      );
-      //   if (data.Status) {
-      //     console.log(data);
-      //     alert("모임 생성에 성공했습니다.");
-      //   } else {
-      //     alert("모임 생성에 실패했습니다.");
-      //   }
+      )
+      .then(response => {
+        if(!response.data.Status) return alert('모집 글 작성에 실패했습니다.');
+        else {
+          alert('모집 글 작성이 완료되었습니다.');
+          navigation(`/category/${inputs.Category.toLowerCase()}`);
+        }
+      })
     } catch (e) {
       console.error(e);
     }
@@ -99,7 +142,7 @@ function WritingPage() {
     <StyledWritePage>
       <StyledTitle>신청글 작성</StyledTitle>
 
-      <div className="WriteForm">
+      <StyledWriteForm>
         <form onSubmit={handleSubmit}>
           <Align>
             <StyledSubTitle>카테고리</StyledSubTitle>
@@ -110,7 +153,8 @@ function WritingPage() {
               value={inputs.Category}
             >
               <option value="TAXI">택시</option>
-              <option value="EAT">식사</option>
+              <option value="MEAL">식사</option>
+              <option value="CAFE">카페</option>
               <option value="LOCKER">사물함</option>
               <option value="ETC">기타</option>
             </StyledSelect>
@@ -128,7 +172,7 @@ function WritingPage() {
           <Align>
             <StyledSubTitle>일시</StyledSubTitle>
             <StyledInput
-              type="text"
+              type="datetime-local"
               value={inputs.Time}
               placeholder="입력하기"
               name="Time"
@@ -148,27 +192,28 @@ function WritingPage() {
           <Align>
             <StyledSubTitle>인원수</StyledSubTitle>
             <StyledInput
-              type="text"
+              type="number"
               value={inputs.MaximumNumberOfPeople}
               placeholder="입력하기"
               name="MaximumNumberOfPeople"
               onChange={handleSelect}
             />
           </Align>
+
           <Align>
             <StyledSubTitle>코멘트</StyledSubTitle>
-            <StyledInput
-              type="text"
-              value={inputs.Comment}
-              placeholder="입력하기"
-              name="Comment"
-              onChange={handleSelect}
-            />
           </Align>
+          <StyledCommentInput
+            type="text"
+            value={inputs.Comment}
+            placeholder="입력하기"
+            name="Comment"
+            onChange={handleSelect}
+          />
 
           <StyledButton onClick={handleSubmit}>글 작성하기</StyledButton>
         </form>
-      </div>
+      </StyledWriteForm>
     </StyledWritePage>
   );
 }

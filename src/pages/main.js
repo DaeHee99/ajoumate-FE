@@ -98,28 +98,48 @@ function Main() {
               <SliderElement
                 title={"길찾기에 필요한 인지적 ..."}
                 time={"5분"}
-                people={"450"}
+                MaximumNumberOfPeople={"1/2인"}
+                gender={"남"}
+                date={"03/18 19:00"}
+                place={"아주대 삼거리"}
+                content={"내용입니다!~~~"}
               />
 
               <SliderElement
                 title={"동전 던지기 예측에 영향 ..."}
                 time={"10분"}
-                people={"600"}
+                MaximumNumberOfPeople={"1/2인"}
+                gender={"남"}
+                date={"03/18 19:00"}
+                place={"아주대 삼거리"}
+                content={"내용입니다!~~~"}
               />
               <SliderElement
                 title={"위험행동에 관한 인지과정 ..."}
                 time={"7분"}
-                people={"1000"}
+                MaximumNumberOfPeople={"1/2인"}
+                gender={"남"}
+                date={"03/18 19:00"}
+                place={"아주대 삼거리"}
+                content={"내용입니다!~~~"}
               />
               <SliderElement
                 title={"매체를 통해 유발된 ..."}
                 time={"3분"}
-                people={"500"}
+                MaximumNumberOfPeople={"1/2인"}
+                gender={"남"}
+                date={"03/18 19:00"}
+                place={"아주대 삼거리"}
+                content={"내용입니다!~~~"}
               />
               <SliderElement
                 title={"확률적 의사결정에서 ..."}
                 time={"5분"}
-                people={"450"}
+                MaximumNumberOfPeople={"1/2인"}
+                gender={"남"}
+                date={"03/18 19:00"}
+                place={"아주대 삼거리"}
+                content={"내용입니다!~~~"}
               />
             </Slider>
           </div>
@@ -129,7 +149,7 @@ function Main() {
       <div id="mate_list" style={{ marginTop: "4rem" }}>
         <div
           style={{
-            marginLeft: 20,
+            marginLeft: 30,
             marginTop: 15,
             marginBottom: 15,
             fontSize: "2rem",
@@ -143,7 +163,7 @@ function Main() {
             style={{
               border: "1px solid gray",
               width: "80%",
-              height: "25rem",
+              height: "30rem",
               marginLeft: "10%",
               borderRadius: "2rem",
             }}

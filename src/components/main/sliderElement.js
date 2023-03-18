@@ -41,7 +41,7 @@ const SliderElement = (Props) => {
             marginRight: 2,
           }}
         >
-          {Props.time}
+          {Props.gender}
         </div>
         <div
           style={{
@@ -51,10 +51,10 @@ const SliderElement = (Props) => {
             marginRight: 7,
           }}
         >
-          {Props.people}
+          {Props.MaximumNumberOfPeople}
         </div>
         <ModalPortals>
-          <Modal show={modalStatus} handleModal={handleModal} status={STATUS}/>
+          <Modal show={modalStatus} handleModal={handleModal} status={STATUS} info={Props}/>
         </ModalPortals>
       </div>
 

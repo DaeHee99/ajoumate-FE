@@ -32,7 +32,7 @@ export default function Navigation() {
   return (
     <StyledNavigation>
       <StyledNavigationButton>
-        <HiHome onClick={() => navigation("/main")} />
+        <HiHome onClick={() => navigation("/home")} />
       </StyledNavigationButton>
       <StyledNavigationButton>
         <RxHamburgerMenu onClick={() => navigation("/category")} />

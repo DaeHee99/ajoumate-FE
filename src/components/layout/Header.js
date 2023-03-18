@@ -18,7 +18,7 @@ export default function Header() {
   const navigation = useNavigate();
 
   return (
-    <StyledHeader onClick={() => navigation("/main")}>
+    <StyledHeader onClick={() => navigation("/home")}>
       <img
         src={Logo}
         alt="Logo"
