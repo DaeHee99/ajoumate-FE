@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import WritingButton from "../components/Writing/WritingButton";
 import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const StyledWritePage = styled.div`
   width: 100%;
@@ -82,6 +82,7 @@ const StyledSelect = styled.select`
 `;
 
 function WritingPage() {
+  const navigation = useNavigate();
   //js하는 부분
   const user = useSelector((state) => state.userSlice);
   const [inputs, setInputs] = useState({
@@ -97,24 +98,32 @@ function WritingPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(inputs.Title === '') return alert('제목을 입력하세요.');
+    if(inputs.Time === '') return alert('날짜와 시간을 입력하세요.');
+    if(inputs.Place === '') return alert('장소를 입력하세요.');
+    if(inputs.MaximumNumberOfPeople === '') return alert('최대 인원 수를 입력하세요.');
+    if(inputs.Comment === '') return alert('코멘트를 입력하세요.');
+
     let ConvertTime = new Date(inputs.Time).getTime();
 
     console.log(inputs, ConvertTime);
 
     try {
-      const { data } = await axios.post(
+      await axios.post(
         "https://ajou-hackathon--qgrwz.run.goorm.site/group/new",
         {
           UserID: inputs.UserID,
           Category: inputs.Category,
-          UserID: inputs.UserID,
           Title: inputs.Title,
           Time: ConvertTime,
           Place: inputs.Place,
           MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
           Comment: inputs.Comment,
         }
-      );
+      )
+      .then(() => {
+        navigation(`/category/${inputs.Category.toLowerCase()}`);
+      })
       //console.log(data.UserID);
       //   if (data.Status) {
       //     console.log(data);
