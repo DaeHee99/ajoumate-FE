@@ -116,12 +116,12 @@ function Main() {
             >
               {JoinList.map((item) => (
                 <SliderElement
-                  title={item.Title}
+                  Title={item.Title}
                   MaximumNumberOfPeople={item.MaximumNumberOfPeople}
-                  gender={item.Gender}
-                  date={item.Time}
-                  place={item.Place}
-                  content={item.Comment}
+                  Gender={item.Gender}
+                  Time={item.Time}
+                  Place={item.Place}
+                  Comment={item.Comment}
                 />
               ))}
               {/* <SliderElement
