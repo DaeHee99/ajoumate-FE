@@ -6,6 +6,12 @@ import { useDispatch } from "react-redux";
 import { postChat } from "../redux/modules/chatSlice";
 import { useState } from "react";
 
+const StyledTitle = styled.div`
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 10px 15px 10px;
+`;
+
 function ChatListPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,7 +27,7 @@ function ChatListPage() {
   };
   return (
     <StChatListPage>
-      <h2>채팅목록</h2>
+      <StyledTitle>채팅목록</StyledTitle>
       <StChatListWrapper>
         <ChatRoomCard onClick={handleClickCard} chatAlert={chatAlert} />
       </StChatListWrapper>

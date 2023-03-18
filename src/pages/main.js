@@ -54,7 +54,6 @@ function Main() {
       style={{
         display: "flex",
         flexDirection: "column",
-        fontFamily: "pretendard",
         width: "36rem",
         height: "60rem",
         flex: 1,
@@ -65,10 +64,9 @@ function Main() {
       <div id="my_apply_list">
         <div
           style={{
-            marginLeft: 20,
-            marginTop: 15,
-            fontSize: "2rem",
-            fontWeight: "bolder",
+            fontSize: "25px",
+            fontWeight: "bold",
+            margin: "10px"
           }}
         >
           나의 신청 목록
@@ -172,11 +170,9 @@ function Main() {
       <div id="mate_list" style={{ marginTop: "4rem" }}>
         <div
           style={{
-            marginLeft: 30,
-            marginTop: 15,
-            marginBottom: 15,
-            fontSize: "2rem",
-            fontWeight: "bolder",
+            fontSize: "25px",
+            fontWeight: "bold",
+            margin: "10px"
           }}
         >
           메이트 목록
