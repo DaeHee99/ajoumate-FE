@@ -21,28 +21,26 @@ const StyledNavigationButton = styled.button`
   background-color: #5F95E5;
   border: 0;
   outline: 0;
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 0;
   cursor: pointer;
 `;
 
 export default function Navigation() {
   return (
-    <div>
-      <StyledNavigation>
-        <StyledNavigationButton>
-          <HiHome onClick={()=>alert('메인')}/>
-        </StyledNavigationButton>
-        <StyledNavigationButton>
-          <RxHamburgerMenu onClick={()=>alert('카테고리')}/>
-        </StyledNavigationButton>
-        <StyledNavigationButton>
-          <IoChatbox onClick={()=>alert('채팅')}/>
-        </StyledNavigationButton>
-        <StyledNavigationButton>
-          <BsFillPersonFill onClick={()=>alert('마이 페이지')}/>
-        </StyledNavigationButton>
-      </StyledNavigation>
-    </div>
+    <StyledNavigation>
+      <StyledNavigationButton>
+        <HiHome onClick={()=>alert('메인')}/>
+      </StyledNavigationButton>
+      <StyledNavigationButton>
+        <RxHamburgerMenu onClick={()=>alert('카테고리')}/>
+      </StyledNavigationButton>
+      <StyledNavigationButton>
+        <IoChatbox onClick={()=>alert('채팅')}/>
+      </StyledNavigationButton>
+      <StyledNavigationButton>
+        <BsFillPersonFill onClick={()=>alert('마이 페이지')}/>
+      </StyledNavigationButton>
+    </StyledNavigation>
   );
 }

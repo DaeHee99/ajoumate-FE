@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../../images/Logo.png'
+import Logo from '../../images/Logo.png';
 
 const StyledHeader = styled.div`
   background-color: #5F95E5;
@@ -10,6 +10,8 @@ const StyledHeader = styled.div`
   justify-content: center;
   font-size: 30px;
   padding: 10px 0;
+  position: fixed;
+  top: 0;
 `;
 
 export default function Header() {
