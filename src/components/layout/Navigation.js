@@ -34,7 +34,7 @@ export default function Navigation() {
         <HiHome
           onClick={() => {
             alert("메인");
-            navigate("/main");
+            navigate("/");
           }}
         />
       </StyledNavigationButton>
@@ -50,7 +50,7 @@ export default function Navigation() {
         <IoChatbox
           onClick={() => {
             alert("채팅");
-            navigate("/chatroom");
+            navigate("/chatlist");
           }}
         />
       </StyledNavigationButton>
