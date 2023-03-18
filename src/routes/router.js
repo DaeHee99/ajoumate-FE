@@ -8,11 +8,13 @@ import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import MyPage from "../pages/MyPage";
 import WritePage from "../pages/WritePage";
+import Splash from "../pages/Splash";
 
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
+      <Route path="/" element={<Splash />} />
+      <Route path="/main" element={<Main />} />
       <Route path="/category" element={<Category />} />
       <Route path="/category/:type" element={<CategoryDetail />} />
       <Route path="/chatlist" element={<ChatListPage />} />
