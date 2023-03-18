@@ -32,7 +32,7 @@ const StyledNavigationButton = styled.button`
 
 export default function Navigation() {
   const navigation = useNavigate();
-  console.log(window.location.pathname)
+  
   return (
     <StyledNavigation>
       <StyledNavigationButton>
