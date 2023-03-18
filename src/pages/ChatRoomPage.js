@@ -16,8 +16,6 @@ function ChatRoomPage() {
   const chatList = useSelector((state) => state.chatSlice.chatList);
 
   useEffect(() => {
-    socket.off("get room list");
-    socket.off("create room");
     socket.emit("all message", from, to);
     socket.on("all message", (allmsg) => {
       dispatch(getInitChat(allmsg));
