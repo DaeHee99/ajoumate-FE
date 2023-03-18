@@ -41,7 +41,7 @@ export default function Navigation() {
         <IoChatbox onClick={()=>navigation('/chatroom')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <BsFillPersonFill onClick={()=>alert('/mypage')}/>
+        <BsFillPersonFill onClick={()=>navigation('/mypage')}/>
       </StyledNavigationButton>
     </StyledNavigation>
   );

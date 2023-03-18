@@ -13,6 +13,7 @@ export default function Router() {
       <Route path="/chatroom" element={<ChatRoomPage />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/mypage" element={<>마이 페이지</>} />
     </Routes>
   );
 }
