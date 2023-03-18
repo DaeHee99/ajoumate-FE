@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-function ChatRoomCard({ onClick, chatAlert, to }) {
+function ChatRoomCard({ onClick, chatAlert, to, userName }) {
   return (
     <StCardBody onClick={() => onClick(to)}>
-      <h3 className="room-category">식사</h3>
-      <h3 className="room-title">광교중앙역까지 택시 타실 분</h3>
-      {chatAlert && <div>야 알림왔어!!!</div>}
+      <h3 className="room-title">
+        {userName}&{to}
+      </h3>
+      {chatAlert && <div>문자왔어!!!</div>}
     </StCardBody>
   );
 }
