@@ -39,7 +39,6 @@ function Main() {
       const { data } = await axios.get(
         `https://ajou-hackathon--qgrwz.run.goorm.site/my/join?UserID=${user.UserID}`
       );
-
       if (data.Status) setJoinList(data.Groups);
     } catch (e) {
       console.error(e);
