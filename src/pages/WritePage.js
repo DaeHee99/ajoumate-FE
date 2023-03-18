@@ -119,6 +119,7 @@ function WritingPage() {
           Time: ConvertTime,
           Place: inputs.Place,
           MaximumNumberOfPeople: Number(inputs.MaximumNumberOfPeople),
+          Gender: inputs.Gender,
           Comment: inputs.Comment,
         })
         .then((response) => {
