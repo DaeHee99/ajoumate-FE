@@ -9,7 +9,7 @@ const Button = styled.button`
   color: #ffffff;
   cursor: pointer;
   margin: 0 0 1rem 0;
-  :disabled {
+  &:disabled {
     background: #d7d7d7;
     cursor: default;
   }

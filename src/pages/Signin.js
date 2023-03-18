@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../redux/modules/userSlice';
+import { useDispatch } from "react-redux";
+import { login } from "../redux/modules/userSlice";
 import Container from "../components/sign/Container";
 import FormBox from "../components/sign/FormBox";
 import Intro from "../components/sign/Intro";
@@ -11,11 +11,10 @@ import Button from "../components/sign/Button";
 import Wrap from "../components/sign/Wrap";
 import Sub from "../components/sign/Sub";
 
-const Signin = () => {
+export default function Signin() {
   const [ID, setID] = useState("");
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
-  const user = useSelector((state) => state.userSlice);
   const dispatch = useDispatch();
 
   const signin = async () => {
@@ -29,9 +28,7 @@ const Signin = () => {
       );
 
       if (data.Status) {
-        // TODO: 전역상태 nickname 저장
-        dispatch(login(data));
-        console.log(data);
+        dispatch(login({ ...data, ID }));
         alert("로그인에 성공했습니다.");
         navigate("/");
       } else {
@@ -76,6 +73,4 @@ const Signin = () => {
       </Container>
     </>
   );
-};
-
-export default Signin;
+}
