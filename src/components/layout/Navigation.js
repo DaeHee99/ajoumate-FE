@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import { HiHome } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoChatbox } from "react-icons/io5";
 import { BsFillPersonFill } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
 
 const StyledNavigation = styled.div`
   width: 100%;
@@ -27,35 +27,21 @@ const StyledNavigationButton = styled.button`
 `;
 
 export default function Navigation() {
-  const navigate = useNavigate();
+  const navigation = useNavigate();
+
   return (
     <StyledNavigation>
       <StyledNavigationButton>
-        <HiHome
-          onClick={() => {
-            alert("메인");
-            navigate("/main");
-          }}
-        />
+        <HiHome onClick={()=>navigation('/')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <RxHamburgerMenu
-          onClick={() => {
-            alert("카테고리");
-            navigate("/category");
-          }}
-        />
+        <RxHamburgerMenu onClick={()=>navigation('/category')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <IoChatbox
-          onClick={() => {
-            alert("채팅");
-            navigate("/chatroom");
-          }}
-        />
+        <IoChatbox onClick={()=>navigation('/chatroom')}/>
       </StyledNavigationButton>
       <StyledNavigationButton>
-        <BsFillPersonFill onClick={() => alert("마이 페이지")} />
+        <BsFillPersonFill onClick={()=>navigation('/mypage')}/>
       </StyledNavigationButton>
     </StyledNavigation>
   );
