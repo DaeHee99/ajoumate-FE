@@ -52,9 +52,9 @@ function Main() {
   const menu = [
     { title: "식사메이트", code: "MEAL" },
     { title: "택시메이트", code: "TAXI" },
-    { title: "사물함메이트", code: "locker" },
-    { title: "카페메이트", code: "cafe" },
-    { title: "기타메이트", code: "etc" },
+    { title: "사물함메이트", code: "LOCKER" },
+    { title: "카페메이트", code: "CAFE" },
+    { title: "기타메이트", code: "ETC" },
   ];
 
   return (
