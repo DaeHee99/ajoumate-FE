@@ -2,13 +2,18 @@ import styled from "styled-components";
 import ChattingBody from "../components/ChatRoomPage/ChattingBody";
 import InputGroup from "../components/ChatRoomPage/InputGroup";
 import RoomHeader from "../components/ChatRoomPage/RoomHeader";
-import { io } from "socket.io-client";
+import socket from "../api/socket";
+import { useDispatch, useSelector } from "react-redux";
 
 function ChatRoomPage() {
-  const socket = io("uri", { transports: ["websocket"] });
-  socket.on("connect", () => {
-    console.log("socket.connected");
+  const dispatch = useDispatch();
+  const chatList = useSelector((state) => state.chatSlice.chatList);
+  socket.emit("all message", () => {});
+
+  socket.on("all message", (allmsg) => {
+    console.log(allmsg);
   });
+  console.log(chatList);
   return (
     <StChatRoomBody>
       <RoomHeader />
