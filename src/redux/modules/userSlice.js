@@ -22,9 +22,16 @@ const userSlice = createSlice({
       state.ID = action.payload.ID;
       socket.emit("set socketId", state.UserID);
     },
+    logout: (state) => {
+      state.Status = false;
+      state.Gender = "";
+      state.Nickname = "";
+      state.UserID = "";
+      state.ID = "";
+    }
   },
 });
 
-export const { login } = userSlice.actions;
+export const { login, logout } = userSlice.actions;
 
 export default userSlice.reducer;
