@@ -3,14 +3,14 @@ import { useState } from "react";
 import socket from "../../api/socket";
 import { useSelector } from "react-redux";
 
-function InputGroup() {
+function InputGroup(props) {
   const [userInput, setUserInput] = useState("");
   const userName = useSelector((state) => state.userSlice.Nickname);
   const handleSubmit = (e) => {
     e.preventDefault();
     socket.emit("message", {
       From: userName,
-      To: userName === "taehoon" ? "taehoon2" : "taehoon",
+      To: props.to,
       Content: userInput,
       Date: Date.now(),
     });

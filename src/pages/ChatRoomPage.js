@@ -31,7 +31,7 @@ function ChatRoomPage() {
     <StChatRoomBody>
       <RoomHeader />
       <ChattingBody socket={socket} />
-      <InputGroup socket={socket} />
+      <InputGroup socket={socket} to={to}/>
     </StChatRoomBody>
   );
 }
