@@ -17,7 +17,7 @@ function Main() {
     autoplay: true,
     arrows: false,
 
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 3,
   };
   const getRecent = async () => {
