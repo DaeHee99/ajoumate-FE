@@ -12,13 +12,13 @@ function Main() {
   const user = useSelector((state) => state.userSlice);
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
 
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,
+    slidesToScroll: 2,
   };
   const getRecent = async () => {
     try {
