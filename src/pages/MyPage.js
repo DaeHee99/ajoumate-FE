@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/modules/userSlice";
+import styled from "styled-components";
 import axios from "axios";
 import Container from "../components/sign/Container";
 import Wrap from "../components/sign/Wrap";
@@ -12,6 +14,21 @@ import Item from "../components/MyPage/Item";
 import Logo from "../images/Logo.png";
 import Signin from "./Signin";
 
+const StyledButton = styled.button`
+  font-size: 18px;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  background-color: #5f95e5;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  z-index: 99;
+`;
+
 export default function MyPage() {
   const [UserID, setUserID] = useState("");
   const [Nickname, setNickname] = useState("");
@@ -20,6 +37,7 @@ export default function MyPage() {
   const [JoinList, setJoinList] = useState([]);
   const [ApplyList, setApplyList] = useState([]);
   const user = useSelector((state) => state.userSlice);
+  const dispatch = useDispatch();
 
   const join = async () => {
     try {
@@ -93,6 +111,7 @@ export default function MyPage() {
               ))}
             </Box>
           </Wrap>
+          <StyledButton onClick={()=>{alert('로그아웃 완료'); dispatch(logout());}}>로그아웃</StyledButton>
         </Container>
       </>
     );
