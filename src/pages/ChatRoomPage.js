@@ -29,7 +29,6 @@ function ChatRoomPage() {
   console.log(chatList);
   return (
     <StChatRoomBody>
-      <RoomHeader />
       <ChattingBody socket={socket} />
       <InputGroup socket={socket} to={to}/>
     </StChatRoomBody>
